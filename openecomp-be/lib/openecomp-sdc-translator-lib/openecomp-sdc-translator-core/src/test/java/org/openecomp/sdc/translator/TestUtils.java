@@ -39,9 +39,9 @@ import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.tuple.Pair;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Assert;
 import org.onap.sdc.tosca.datatypes.model.GroupDefinition;
 import org.onap.sdc.tosca.datatypes.model.NodeTemplate;

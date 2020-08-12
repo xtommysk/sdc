@@ -16,7 +16,6 @@
 
 package org.onap.sdc.tosca.services;
 
-import java.beans.IntrospectionException;
 import org.onap.sdc.tosca.error.ToscaRuntimeException;
 import org.yaml.snakeyaml.constructor.Constructor;
 import org.yaml.snakeyaml.introspector.Property;
@@ -51,7 +50,7 @@ public class ToscaExtensionYamlUtil extends YamlUtil {
     public class ToscaPropertyUtilsWithHeatExtension extends MyPropertyUtils {
 
         @Override
-        public Property getProperty(Class<? extends Object> type, String name) /*throws IntrospectionException*/ {
+        public Property getProperty(Class<? extends Object> type, String name) {
             Class<? extends Object> classType = type;
             try {
                 if (type.equals(Class.forName(TOSCA_MODEL_PARAMETER_DEFINITION))) {

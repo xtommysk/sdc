@@ -34,7 +34,6 @@ import org.yaml.snakeyaml.parser.ParserException;
 import org.yaml.snakeyaml.representer.Representer;
 
 
-import java.beans.IntrospectionException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.AbstractMap;
@@ -244,14 +243,13 @@ public class YamlUtil {
   public class MyPropertyUtils extends PropertyUtils {
     //Unsorted properties
     @Override
-    protected Set<Property> createPropertySet(Class<? extends Object> type, BeanAccess bnAccess)
-        /*throws IntrospectionException*/ {
+    protected Set<Property> createPropertySet(Class<? extends Object> type, BeanAccess bnAccess) {
       return new LinkedHashSet<>(getPropertiesMap(type,
           BeanAccess.FIELD).values());
     }
 
     @Override
-    public Property getProperty(Class<?> type, String name) /*throws IntrospectionException */{
+    public Property getProperty(Class<?> type, String name) {
       String updatedName = name;
       if (DEFAULT.equals(updatedName)) {
         updatedName = DEFAULT_STR;
