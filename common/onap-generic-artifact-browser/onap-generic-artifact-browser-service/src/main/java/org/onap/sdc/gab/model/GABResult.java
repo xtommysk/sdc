@@ -40,6 +40,10 @@ public class GABResult {
      */
     private List<GABResultEntry> entries;
 
+    public GABResult(List<GABResultEntry> gabResultEntryList) {
+        entries = gabResultEntryList;
+    }
+
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this).add("entries", entries).toString();

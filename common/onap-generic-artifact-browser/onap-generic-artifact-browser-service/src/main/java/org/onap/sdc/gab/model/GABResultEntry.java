@@ -41,6 +41,11 @@ public class GABResultEntry {
      */
     private Object data;
 
+    public GABResultEntry(String key, Object entry) {
+        path = key;
+        data = entry;
+    }
+
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
