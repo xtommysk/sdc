@@ -25,11 +25,6 @@
     </dependency>
     <dependency>
       <groupId>com.amdocs.zusammen</groupId>
-      <artifactId>zusammen-adaptor-inbound-api</artifactId>
-      <version>${zusammen.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.amdocs.zusammen</groupId>
       <artifactId>zusammen-adaptor-inbound-impl</artifactId>
       <version>${zusammen.version}</version>
       <scope>runtime</scope>

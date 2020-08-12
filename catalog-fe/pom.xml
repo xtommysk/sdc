@@ -44,6 +44,7 @@
     <dependency>
       <groupId>org.codehaus.groovy</groupId>
       <artifactId>groovy</artifactId>
+      <version>${groovy.version}</version>
       <scope>compile</scope>
     </dependency>
 
@@ -132,7 +133,7 @@
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-annotations</artifactId>
-      <version>${jackson-annotations.version}</version>
+      <version>${jackson.version}</version>
       <scope>compile</scope>
     </dependency>
 
@@ -161,14 +162,14 @@
     <dependency>
       <groupId>commons-logging</groupId>
       <artifactId>commons-logging</artifactId>
-      <version>${commons-logging}</version>
+      <version>${commons.logging.version}</version>
       <scope>compile</scope>
     </dependency>
 
     <dependency>
       <groupId>commons-codec</groupId>
       <artifactId>commons-codec</artifactId>
-      <version>${commons-codec}</version>
+      <version>${commons.codec.version}</version>
       <scope>compile</scope>
     </dependency>
     <!-- http client END -->
@@ -221,14 +222,14 @@
     <dependency>
       <groupId>org.aspectj</groupId>
       <artifactId>aspectjrt</artifactId>
-      <version>${aspectjrt.version}</version>
+      <version>${aspectj.version}</version>
       <scope>compile</scope>
     </dependency>
 
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
-      <version>${lang3.version}</version>
+      <version>${commons.lang3.version}</version>
       <scope>compile</scope>
     </dependency>
 

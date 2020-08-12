@@ -10,7 +10,7 @@
   </parent>
 
   <properties>
-    <groove-all.version>2.4.10</groove-all.version>
+    <!--groove-all.version>2.4.10</groove-all.version-->
   </properties>
 
   <artifactId>openecomp-conflict-core</artifactId>
@@ -38,7 +38,7 @@
     <dependency>
       <groupId>org.codehaus.groovy</groupId>
       <artifactId>groovy-all</artifactId>
-      <version>${groove-all.version}</version>
+      <version>${groovy.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

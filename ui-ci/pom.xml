@@ -16,7 +16,14 @@
   <properties>
     <sonar.skip>true</sonar.skip>
     <jacoco.skip>true</jacoco.skip>
-    <aspectj.version>1.8.10</aspectj.version>
+    <!--aspectj.version>1.8.10</aspectj.version-->
+    <selenium.version>2.53.1</selenium.version>
+    <commons.net.version>3.3</commons.net.version>
+    <xml.apis.version>1.4.01</xml.apis.version>
+    <lightbody.bmp-core.version>2.1.4</lightbody.bmp-core.version>
+    <markusbernhardt.proxy-vole.version>1.0.2</markusbernhardt.proxy-vole.version>
+    <paulhammant.ngwebdriver.version>0.9.7</paulhammant.ngwebdriver.version>
+    <inject.guice.version>4.1.0</inject.guice.version>
   </properties>
 
   <dependencies>
@@ -31,8 +38,7 @@
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
-
-      <version>2.53.1</version>
+      <version>${selenium.version}</version>
       <exclusions>
         <exclusion>
           <groupId>org.eclipse.jetty</groupId>
@@ -54,21 +60,21 @@
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-server</artifactId>
-      <version>2.53.1</version>
+      <version>${selenium.version}</version>
       <scope>runtime</scope>
     </dependency>
 
     <dependency>
       <groupId>commons-net</groupId>
       <artifactId>commons-net</artifactId>
-      <version>3.3</version>
+      <version>${commons.net.version}</version>
       <scope>compile</scope>
     </dependency>
 
     <dependency>
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
-      <version>2.4</version>
+      <version>${commons.io.version}</version>
       <scope>compile</scope>
     </dependency>
 
@@ -128,7 +134,7 @@
     <dependency>
       <groupId>commons-logging</groupId>
       <artifactId>commons-logging</artifactId>
-      <version>${commons-logging}</version>
+      <version>${commons.logging.version}</version>
       <scope>compile</scope>
     </dependency>
 
@@ -162,13 +168,6 @@
     </dependency>
 
     <dependency>
-      <groupId>org.codehaus.jackson</groupId>
-      <artifactId>jackson-mapper-asl</artifactId>
-      <version>1.9.2</version>
-      <scope>compile</scope>
-    </dependency>
-
-    <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
       <version>${jackson.version}</version>
@@ -183,7 +182,7 @@
     <dependency>
       <groupId>org.openecomp.sdc.sdc-distribution-client</groupId>
       <artifactId>sdc-distribution-client</artifactId>
-      <version>1.2.3</version>
+      <version>${openecomp.sdc.sdc-distr-client}</version>
       <scope>compile</scope>
     </dependency>
 
@@ -225,7 +224,7 @@
     <dependency>
       <groupId>xml-apis</groupId>
       <artifactId>xml-apis</artifactId>
-      <version>1.4.01</version>
+      <version>${xml.apis.version}</version>
       <scope>compile</scope>
     </dependency>
 
@@ -246,14 +245,14 @@
     <dependency>
       <groupId>commons-codec</groupId>
       <artifactId>commons-codec</artifactId>
-      <version>${commons-codec}</version>
+      <version>${commons.codec.version}</version>
       <scope>compile</scope>
     </dependency>
 
     <dependency>
       <groupId>com.aventstack</groupId>
       <artifactId>extentreports</artifactId>
-      <version>3.0.6</version>
+      <version>${aventstack.extentreports.version}</version>
       <scope>compile</scope>
     </dependency>
 
@@ -262,7 +261,7 @@
       <!-- To use the legacy, Jetty-based implementation, change the artifactId
         to browsermob-core -->
       <artifactId>browsermob-core</artifactId>
-      <version>2.1.4</version>
+      <version>${lightbody.bmp-core.version}</version>
       <exclusions>
         <exclusion>
           <groupId>com.fasterxml.jackson.core</groupId>
@@ -274,30 +273,32 @@
     <dependency>
       <groupId>com.github.markusbernhardt</groupId>
       <artifactId>proxy-vole</artifactId>
-      <version>1.0.2</version>
+      <version>${markusbernhardt.proxy-vole.version}</version>
     </dependency>
 
     <dependency>
       <groupId>com.paulhammant</groupId>
       <artifactId>ngwebdriver</artifactId>
-      <version>0.9.7</version>
+      <version>${paulhammant.ngwebdriver.version}</version>
       <scope>compile</scope>
     </dependency>
 
     <dependency>
       <groupId>com.google.inject</groupId>
       <artifactId>guice</artifactId>
-      <version>4.1.0</version>
+      <version>${inject.guice.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.codehaus.groovy</groupId>
       <artifactId>groovy</artifactId>
+      <version>${groovy.version}</version>
     </dependency>
 
     <dependency>
       <groupId>io.netty</groupId>
       <artifactId>netty-handler</artifactId>
+      <version>${netty.version}</version>
     </dependency>
 
   </dependencies>

@@ -13,9 +13,9 @@
 
   <artifactId>openecomp-conflict-api</artifactId>
 
-  <properties>
+  <!--properties>
     <java-hamcrest.version>2.0.0.0</java-hamcrest.version>
-  </properties>
+  </properties-->
 
   <dependencies>
     <dependency>

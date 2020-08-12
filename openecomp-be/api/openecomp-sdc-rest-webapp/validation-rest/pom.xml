@@ -15,7 +15,7 @@
     </parent>
 
     <modules>
-        <module>/validation-rest-services</module>
-        <module>/validation-rest-types</module>
+        <module>validation-rest-services</module>
+        <module>validation-rest-types</module>
     </modules>
 </project>

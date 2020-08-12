@@ -15,8 +15,8 @@
 	</parent>
 
 	<modules>
-		<module>/vendor-license-rest-services</module>
-		<module>/vendor-license-rest-types</module>
+		<module>vendor-license-rest-services</module>
+		<module>vendor-license-rest-types</module>
 	</modules>
 
 </project>

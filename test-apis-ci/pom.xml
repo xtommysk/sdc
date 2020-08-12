@@ -15,6 +15,9 @@
   <properties>
     <sonar.skip>true</sonar.skip>
     <mockserver.netty.version>5.5.4</mockserver.netty.version>
+    <jcraft.jsch.springsource.version>0.1.41</jcraft.jsch.springsource.version>
+    <cucumber.gherkin.version>13.0.0</cucumber.gherkin.version>
+    <cucumber.jvm-deps.version>1.0.6</cucumber.jvm-deps.version>
   </properties>
 
   <dependencies>
@@ -49,6 +52,7 @@
     <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
+      <version>${assertj.version}</version>
     </dependency>
 
     <dependency>
@@ -67,14 +71,14 @@
     <dependency>
       <groupId>com.aventstack</groupId>
       <artifactId>extentreports</artifactId>
-      <version>3.0.6</version>
+      <version>${aventstack.extentreports.version}</version>
       <scope>compile</scope>
     </dependency>
 
     <dependency>
       <groupId>com.typesafe</groupId>
       <artifactId>config</artifactId>
-      <version>1.0.2</version>
+      <version>${typesafe.config.version}</version>
       <scope>compile</scope>
     </dependency>
 
@@ -88,7 +92,7 @@
     <dependency>
       <groupId>com.jcraft.jsch</groupId>
       <artifactId>com.springsource.com.jcraft.jsch</artifactId>
-      <version>0.1.41</version>
+      <version>${jcraft.jsch.springsource.version}</version>
       <scope>compile</scope>
     </dependency>
 
@@ -173,7 +177,7 @@
     <dependency>
       <groupId>commons-codec</groupId>
       <artifactId>commons-codec</artifactId>
-      <version>${commons-codec}</version>
+      <version>${commons.codec.version}</version>
       <scope>compile</scope>
     </dependency>
 
@@ -211,14 +215,14 @@
     <dependency>
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
-      <version>2.5</version>
+      <version>${commons.io.version}</version>
       <scope>compile</scope>
     </dependency>
 
     <dependency>
       <groupId>commons-logging</groupId>
       <artifactId>commons-logging</artifactId>
-      <version>${commons-logging}</version>
+      <version>${commons.logging.version}</version>
       <scope>compile</scope>
     </dependency>
 
@@ -290,13 +294,6 @@
     </dependency>
 
     <dependency>
-      <groupId>org.codehaus.jackson</groupId>
-      <artifactId>jackson-mapper-asl</artifactId>
-      <version>1.9.2</version>
-      <scope>compile</scope>
-    </dependency>
-
-    <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
       <version>${jackson.version}</version>
@@ -331,7 +328,7 @@
     <dependency>
       <groupId>org.json</groupId>
       <artifactId>json</artifactId>
-      <version>20131018</version>
+      <version>${json.version}</version>
     </dependency>
 
     <dependency>
@@ -356,7 +353,7 @@
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>gherkin</artifactId>
-      <version>13.0.0</version>
+      <version>${cucumber.gherkin.version}</version>
     </dependency>
     <dependency>
       <groupId>io.cucumber</groupId>
@@ -368,7 +365,7 @@
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-jvm-deps</artifactId>
-      <version>1.0.6</version>
+      <version>${cucumber.jvm-deps.version}</version>
       <scope>provided</scope>
     </dependency>
 
@@ -388,7 +385,7 @@
     <dependency>
       <groupId>org.openecomp.sdc.sdc-distribution-client</groupId>
       <artifactId>sdc-distribution-client</artifactId>
-      <version>1.2.2</version>
+      <version>${openecomp.sdc.sdc-distr-client}</version>
       <scope>test</scope>
     </dependency>
 
@@ -419,16 +416,19 @@
     <dependency>
       <groupId>org.codehaus.groovy</groupId>
       <artifactId>groovy</artifactId>
+      <version>${groovy.version}</version>
     </dependency>
 
     <dependency>
       <groupId>io.netty</groupId>
       <artifactId>netty-all</artifactId>
+      <version>${netty.version}</version>
     </dependency>
 
     <dependency>
       <groupId>io.netty</groupId>
       <artifactId>netty-handler</artifactId>
+      <version>${netty.version}</version>
     </dependency>
 
   </dependencies>

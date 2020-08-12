@@ -3,7 +3,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <name>openecomp-sdc-docker-db-init</name>
-    <groupId>org.openecomp.sdc</groupId>
     <artifactId>openecomp-sdc-docker-db-init</artifactId>
     <packaging>pom</packaging>
 

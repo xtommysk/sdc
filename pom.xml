@@ -43,40 +43,59 @@ Modifications copyright (c) 2018-2019 Nokia
     <tosca.datatype.version>${project.version}</tosca.datatype.version>
 
     <!-- 3rd parties versions -->
-    <bean-matcher.version>0.11</bean-matcher.version>
-    <lang3.version>3.10</lang3.version>
-    <guava.version>18.0</guava.version>
+    <!--bean-matcher.version>0.11</bean-matcher.version-->
+    <commons.lang3.version>3.10</commons.lang3.version>
+    <guava.version>29.0-jre</guava.version>
     <janusgraph.version>0.3.1</janusgraph.version>
-    <spring.version>4.3.18.RELEASE</spring.version>
+    <spring.version>5.1.2.RELEASE</spring.version>
     <jersey-bom.version>2.27</jersey-bom.version>
     <netty.version>4.1.36.Final</netty.version>
     <servlet-api.version>3.1.0</servlet-api.version>
     <wire-mock.version>2.26.3</wire-mock.version>
     <ecomp.version>2.6.0</ecomp.version>
-    <cassandra.unit.version>4.3.1.0</cassandra.unit.version>
     <cadi.version>2.1.8</cadi.version>
     <lombok.version>1.18.12</lombok.version>
     <commons-beanutils>1.9.3</commons-beanutils>
     <commons-configuration>2.3</commons-configuration>
     <apache-poi.version>4.1.0</apache-poi.version>
     <onap.logging.version>1.6.1</onap.logging.version>
+    <commons.io.version>2.5</commons.io.version>
+    <groovy.version>2.4.13</groovy.version>
 
+    <commons.cli.version>1.4</commons.cli.version>
     <commons.collections.version>4.1</commons.collections.version>
+    <commons.validator.version>1.6</commons.validator.version>
+    <javax.jms.version>1.1</javax.jms.version>
+    <javax.val-api.version>1.1.0.Final</javax.val-api.version>
+    <hibernate.validator.version>5.3.6.Final</hibernate.validator.version>
     <ws.rs.version>2.1</ws.rs.version>
+    <cglib.version>3.2.4</cglib.version>
+    <fst.version>2.47</fst.version>
+    <swagger.version>2.1.1</swagger.version>
+    <typesafe.config.version>1.0.2</typesafe.config.version>
+    <aventstack.extentreports.version>3.0.6</aventstack.extentreports.version>
+    <asm-library.repackaged.version>2.4.0</asm-library.repackaged.version>
+    <eclipse.jgit.version>3.4.1.201406201815-r</eclipse.jgit.version>
+    <nsa.cambriaClient.version>1.2.1-oss</nsa.cambriaClient.version>
+    <aft.dme2.version>3.1.200-oss</aft.dme2.version>
+
+    <openecomp.sdc.sdc-distr-client>1.2.3</openecomp.sdc.sdc-distr-client>
+    <onap.dmaap.messagerouter.dmaapclient.version>1.1.3</onap.dmaap.messagerouter.dmaapclient.version>
 
     <jetty.version>9.4.18.v20190429</jetty.version>
 
     <!-- JSON and YAML Parsing -->
     <jackson.version>2.10.0</jackson.version>
-    <jackson-annotations.version>${jackson.version}</jackson-annotations.version>
-    <jackson.mapper.version>1.9.13</jackson.mapper.version>
+    <!--jackson-annotations.version>${jackson.version}</jackson-annotations.version-->
+    <!-->1.9.13</jackson.mapper.version-->
     <clearspring.version>2.1.1</clearspring.version>
     <skipYamlJsonValidator>false</skipYamlJsonValidator>
+    <json.version>20131018</json.version>
 
     <!-- Yaml for properties -->
-    <snakeyaml.version>1.14</snakeyaml.version>
+    <snakeyaml.version>1.17</snakeyaml.version>
     <functionaljava.version>4.7</functionaljava.version>
-    <httpclient.version>4.5.3</httpclient.version>
+    <httpclient.version>4.5.7</httpclient.version>
     <httpcore.version>4.4.1</httpcore.version>
     <json-simple.version>1.1</json-simple.version>
 
@@ -84,15 +103,15 @@ Modifications copyright (c) 2018-2019 Nokia
     <!-- logback -->
     <logback.version>1.2.3</logback.version>
     <slf4j-api.version>1.7.25</slf4j-api.version>
-    <commons-codec>1.10</commons-codec>
-    <commons-logging>1.2</commons-logging>
+    <commons.codec.version>1.11</commons.codec.version>
+    <commons.logging.version>1.2</commons.logging.version>
     <janino.version>3.0.6</janino.version>
     <log4j.version>2.13.1</log4j.version>
 
     <!-- aspects -->
     <jcabi.version>0.20.1</jcabi.version>
-    <aspectjrt.version>1.8.4</aspectjrt.version>
-    <aspectj.version>1.7.4</aspectj.version>
+    <!--aspectj.version>1.8.4</-aspectj.version-->
+    <aspectj.version>1.8.10</aspectj.version>
     <jcabi.maven.plugin.version>0.13.2</jcabi.maven.plugin.version>
 
     <!-- Logging end -->
@@ -116,6 +135,7 @@ Modifications copyright (c) 2018-2019 Nokia
     <junitJupiter.version>5.6.0</junitJupiter.version>
     <assertj.version>3.16.0</assertj.version>
     <testng.version>6.14.3</testng.version>
+    <testng.junit5.version>0.0.1</testng.junit5.version>
     <cucumber.version>5.6.0</cucumber.version>
     <bean-matchers.version>0.11</bean-matchers.version>
     <hamcrest.version>2.1</hamcrest.version>
@@ -140,7 +160,9 @@ Modifications copyright (c) 2018-2019 Nokia
     <sonar.projectBaseDir>${project.basedir}</sonar.projectBaseDir>
     <sonar.coverage.exclusions>pom.xml,src/test</sonar.coverage.exclusions>
     <!--cassandra -->
+    <cassandra.unit.version>4.3.1.0</cassandra.unit.version>
     <cassandra.driver.version>3.8.0</cassandra.driver.version>
+    <cassandra.all.version>3.11.3</cassandra.all.version>
     <!-- maven central (Nexus) -->
     <nexus.id.release>nexus</nexus.id.release>
     <nexus.id.snapshot>nexus</nexus.id.snapshot>
@@ -186,7 +208,7 @@ Modifications copyright (c) 2018-2019 Nokia
       <dependency>
         <groupId>org.glassfish.hk2.external</groupId>
         <artifactId>asm-all-repackaged</artifactId>
-        <version>2.4.0</version>
+        <version>${asm-library.repackaged.version}</version>
       </dependency>
 
       <dependency>
@@ -222,12 +244,12 @@ Modifications copyright (c) 2018-2019 Nokia
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-lang3</artifactId>
-        <version>${lang3.version}</version>
+        <version>${commons.lang3.version}</version>
       </dependency>
       <dependency>
         <groupId>org.codehaus.groovy</groupId>
         <artifactId>groovy</artifactId>
-        <version>2.4.13</version>
+        <version>${groovy.version}</version>
       </dependency>
       <dependency>
         <groupId>io.netty</groupId>

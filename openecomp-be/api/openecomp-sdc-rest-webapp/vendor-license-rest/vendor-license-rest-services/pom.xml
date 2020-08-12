@@ -26,7 +26,6 @@
     <groupId>org.openecomp.sdc.onboarding</groupId>
     <artifactId>vendor-license-rest</artifactId>
     <version>1.7.0-SNAPSHOT</version>
-    <relativePath>../</relativePath>
   </parent>
 
   <properties>
@@ -59,12 +58,12 @@
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpclient</artifactId>
-      <version>${http.client.version}</version>
+      <version>${httpclient.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpcore</artifactId>
-      <version>${http.core.version}</version>
+      <version>${httpcore.version}</version>
     </dependency>
 
     <!-- Java Stuff -->

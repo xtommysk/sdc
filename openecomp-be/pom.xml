@@ -56,7 +56,7 @@
     <dependency>
       <groupId>com.github.testng-team</groupId>
       <artifactId>testng-junit5</artifactId>
-      <version>0.0.1</version>
+      <version>${testng.junit5.version}</version>
       <scope>test</scope>
       <exclusions>
         <exclusion>
@@ -101,11 +101,11 @@
   </build>
 
   <modules>
-    <module>/api</module>
-    <module>/lib</module>
-    <module>/tools/swagger-ui</module>
-    <module>/tools/zusammen-tools</module>
-    <module>/backend</module>
+    <module>api</module>
+    <module>lib</module>
+    <module>tools/swagger-ui</module>
+    <module>tools/zusammen-tools</module>
+    <module>backend</module>
   </modules>
 
   <profiles>

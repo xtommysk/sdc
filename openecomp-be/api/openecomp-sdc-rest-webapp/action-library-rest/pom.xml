@@ -12,10 +12,10 @@
         <groupId>org.openecomp.sdc</groupId>
         <artifactId>openecomp-sdc-rest-webapp</artifactId>
         <version>1.7.0-SNAPSHOT</version>
-        <relativePath>../</relativePath>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <modules>
-        <module>/action-library-rest-services</module>
-        <module>/action-library-rest-types</module>
+        <module>action-library-rest-services</module>
+        <module>action-library-rest-types</module>
     </modules>
 </project>

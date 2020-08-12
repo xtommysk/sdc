@@ -16,25 +16,25 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>1.7.25</version>
+      <version>${slf4j-api.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-crypto</artifactId>
-      <version>1.0.0</version>
+      <version>${commons.crypto.version}</version>
     </dependency>
 
     <dependency>
-      <groupId>commons-lang</groupId>
-      <artifactId>commons-lang</artifactId>
-      <version>2.6</version>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>${commons.lang3.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.functionaljava</groupId>
       <artifactId>functionaljava</artifactId>
-      <version>4.7</version>
+      <version>${functionaljava.version}</version>
     </dependency>
 
     <dependency>
@@ -57,13 +57,13 @@
     <dependency>
       <groupId>commons-codec</groupId>
       <artifactId>commons-codec</artifactId>
-      <version>1.11</version>
+      <version>${commons.codec.version}</version>
     </dependency>
 
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
-      <version>3.1.0</version>
+      <version>${servlet-api.version}</version>
     </dependency>
 
   </dependencies>

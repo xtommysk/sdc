@@ -30,14 +30,14 @@
     <dependency>
       <groupId>org.aspectj</groupId>
       <artifactId>aspectjrt</artifactId>
-      <version>${aspectjrt.version}</version>
+      <version>${aspectj.version}</version>
       <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
-      <version>${lang3.version}</version>
+      <version>${commons.lang3.version}</version>
       <scope>provided</scope>
     </dependency>
 
@@ -65,19 +65,19 @@
     <dependency>
       <groupId>commons-validator</groupId>
       <artifactId>commons-validator</artifactId>
-      <version>1.6</version>
+      <version>${commons.validator.version}</version>
       <exclusions>
         <exclusion>
-          <artifactId>commons-collections</artifactId>
-          <groupId>commons-collections</groupId>
+          <artifactId>commons-collections4</artifactId>
+          <groupId>org.apache.commons</groupId>
         </exclusion>
       </exclusions>
     </dependency>
 
     <dependency>
-      <artifactId>commons-collections</artifactId>
-      <groupId>commons-collections</groupId>
-      <version>3.2.2</version>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-collections4</artifactId>
+      <version>${commons.collections.version}</version>
     </dependency>
 
     <dependency>
