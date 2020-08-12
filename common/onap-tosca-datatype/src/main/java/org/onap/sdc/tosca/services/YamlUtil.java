@@ -245,13 +245,13 @@ public class YamlUtil {
     //Unsorted properties
     @Override
     protected Set<Property> createPropertySet(Class<? extends Object> type, BeanAccess bnAccess)
-        throws IntrospectionException {
+        /*throws IntrospectionException*/ {
       return new LinkedHashSet<>(getPropertiesMap(type,
           BeanAccess.FIELD).values());
     }
 
     @Override
-    public Property getProperty(Class<?> type, String name) throws IntrospectionException {
+    public Property getProperty(Class<?> type, String name) /*throws IntrospectionException */{
       String updatedName = name;
       if (DEFAULT.equals(updatedName)) {
         updatedName = DEFAULT_STR;
@@ -276,8 +276,8 @@ public class YamlUtil {
     }
 
     @Override
-    protected Map<Object, Object> createDefaultMap() {
-      final Map<Object, Object> delegate = super.createDefaultMap();
+    protected Map<Object, Object> createDefaultMap(int initSize) {
+      final Map<Object, Object> delegate = super.createDefaultMap(initSize);
       return new AbstractMap<Object, Object>() {
         @Override
         public Object put(Object key, Object value) {
