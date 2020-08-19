@@ -58,7 +58,7 @@ public class AuthenticationCookie  {
         this.userID = userID;
     }
 
-    public Set getRoles() {
+    public Set<String> getRoles() {
         return roles;
     }
 
