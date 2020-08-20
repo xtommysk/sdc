@@ -39,7 +39,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.onap.logging.ref.slf4j.ONAPLogConstants;
 import org.openecomp.sdc.be.auditing.api.AuditEventFactory;
@@ -289,7 +289,7 @@ public class ComponentsUtils {
 
         ResponseFormat responseFormat = null;
         if (actionStatus == ActionStatus.MISSING_CAPABILITY_TYPE) {
-            if (obj instanceof List && org.apache.commons.collections.CollectionUtils.isNotEmpty((List) obj)) {
+            if (obj instanceof List && org.apache.commons.collections4.CollectionUtils.isNotEmpty((List) obj)) {
                 List list = (List) obj;
                 if (list.get(0) instanceof RequirementDefinition) {
                     responseFormat = getResponseFormat(ActionStatus.MISSING_CAPABILITY_TYPE, ((RequirementDefinition) list
@@ -1765,8 +1765,8 @@ public class ComponentsUtils {
             return Collections.emptyList();
         }
 
-        return uiConstraintsMaps.stream().map(dataMap -> new com.fasterxml.jackson.databind.ObjectMapper()
-            .convertValue(dataMap, UIConstraint.class)).collect(Collectors.toList());
+        return uiConstraintsMaps.stream().map(dataMap -> new ObjectMapper().convertValue(dataMap, UIConstraint.class))
+                .collect(Collectors.toList());
     }
 
 

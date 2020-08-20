@@ -17,7 +17,7 @@
 package org.openecomp.sdc.asdctool.migration.tasks.mig1902;
 
 import fj.data.Either;
-import org.apache.commons.collections.MapUtils;
+import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.openecomp.sdc.asdctool.migration.core.DBVersion;
 import org.openecomp.sdc.asdctool.migration.core.task.Migration;

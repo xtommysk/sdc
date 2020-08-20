@@ -52,7 +52,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import static org.apache.commons.collections.ListUtils.union;
+import static org.apache.commons.collections4.ListUtils.union;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)

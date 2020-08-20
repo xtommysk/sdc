@@ -38,7 +38,7 @@ import org.openecomp.sdc.common.log.wrappers.Logger;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.apache.commons.collections.CollectionUtils.isNotEmpty;
+import static org.apache.commons.collections4.CollectionUtils.isNotEmpty;
 
 /**
  * Created by chaya on 9/20/2017.

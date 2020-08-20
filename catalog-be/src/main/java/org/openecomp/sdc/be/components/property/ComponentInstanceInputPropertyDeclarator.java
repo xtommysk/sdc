@@ -43,7 +43,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import static org.apache.commons.collections.CollectionUtils.isEmpty;
+import static org.apache.commons.collections4.CollectionUtils.isEmpty;
 import static org.openecomp.sdc.be.model.utils.ComponentUtilities.getInputAnnotations;
 
 @org.springframework.stereotype.Component

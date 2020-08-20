@@ -39,7 +39,7 @@ import java.util.stream.Stream;
 
 import static java.util.Collections.singletonMap;
 import static java.util.stream.Collectors.toList;
-import static org.apache.commons.collections.CollectionUtils.isEmpty;
+import static org.apache.commons.collections4.CollectionUtils.isEmpty;
 import static org.openecomp.sdc.be.dao.utils.MapUtil.toMap;
 import static org.openecomp.sdc.be.utils.PropertyDefinitionUtils.resolveGetInputProperties;
 

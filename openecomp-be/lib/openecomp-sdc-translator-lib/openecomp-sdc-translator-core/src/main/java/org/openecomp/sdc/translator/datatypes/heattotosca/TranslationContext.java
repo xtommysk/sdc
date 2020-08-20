@@ -20,7 +20,7 @@ package org.openecomp.sdc.translator.datatypes.heattotosca;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.ListMultimap;
-import org.apache.commons.collections.MapUtils;
+import org.apache.commons.collections4.MapUtils;
 
 import org.onap.config.api.Configuration;
 import org.onap.config.api.ConfigurationManager;

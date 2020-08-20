@@ -20,7 +20,7 @@
 
 package org.openecomp.sdc.be.datatypes.elements;
 
-import org.apache.commons.collections.map.HashedMap;
+import org.apache.commons.collections4.map.HashedMap;
 import org.junit.Test;
 
 import java.util.Map;

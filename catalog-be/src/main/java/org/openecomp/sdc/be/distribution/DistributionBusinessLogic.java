@@ -23,7 +23,7 @@ package org.openecomp.sdc.be.distribution;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import fj.data.Either;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.http.HttpStatus;
 import org.openecomp.sdc.be.components.distribution.engine.CambriaErrorResponse;
 import org.openecomp.sdc.be.components.distribution.engine.DistributionEngineInitTask;
@@ -51,7 +51,7 @@ import javax.annotation.Resource;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-import static org.apache.commons.lang.BooleanUtils.isTrue;
+import static org.apache.commons.lang3.BooleanUtils.isTrue;
 import static org.openecomp.sdc.be.components.distribution.engine.DistributionEngineInitTask.buildTopicName;
 import static org.openecomp.sdc.be.config.ConfigurationManager.getConfigurationManager;
 

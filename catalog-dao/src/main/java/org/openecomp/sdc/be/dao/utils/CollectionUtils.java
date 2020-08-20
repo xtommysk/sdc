@@ -34,7 +34,7 @@ public final class CollectionUtils {
     }
 
     public static <T> List<T> safeGetList(List<T> listToCheck) {
-        return org.apache.commons.collections.CollectionUtils.isNotEmpty(listToCheck) ? listToCheck : Collections.emptyList();
+        return org.apache.commons.collections4.CollectionUtils.isNotEmpty(listToCheck) ? listToCheck : Collections.emptyList();
     }
 
     /**

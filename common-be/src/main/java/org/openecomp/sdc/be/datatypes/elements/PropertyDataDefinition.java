@@ -20,7 +20,7 @@
 
 package org.openecomp.sdc.be.datatypes.elements;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.openecomp.sdc.be.datatypes.enums.JsonPresentationFields;
 import org.openecomp.sdc.be.datatypes.tosca.ToscaDataDefinition;
 
@@ -32,7 +32,7 @@ import java.util.Set;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import static org.apache.commons.collections.CollectionUtils.isNotEmpty;
+import static org.apache.commons.collections4.CollectionUtils.isNotEmpty;
 
 @EqualsAndHashCode(callSuper = false)
 @Data

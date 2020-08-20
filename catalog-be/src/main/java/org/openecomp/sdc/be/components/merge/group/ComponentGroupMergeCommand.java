@@ -37,8 +37,8 @@ import java.util.Optional;
 
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
-import static org.apache.commons.collections.CollectionUtils.isEmpty;
-import static org.apache.commons.collections.MapUtils.isEmpty;
+import static org.apache.commons.collections4.CollectionUtils.isEmpty;
+import static org.apache.commons.collections4.MapUtils.isEmpty;
 import static org.openecomp.sdc.be.components.merge.resource.ResourceDataMergeBusinessLogic.FIRST_COMMAND;
 
 @org.springframework.stereotype.Component

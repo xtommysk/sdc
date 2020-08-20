@@ -213,7 +213,7 @@ public class PolicyUtilsTest extends BeConfDependentTest{
 	}
 
 	private void validateExtractedPolicies(Set<String> policyTypes, String expectedType) {
-		assertTrue(org.apache.commons.collections.CollectionUtils.isNotEmpty(policyTypes));
+		assertTrue(org.apache.commons.collections4.CollectionUtils.isNotEmpty(policyTypes));
 		assertEquals(1, policyTypes.size());
 		assertEquals(expectedType, policyTypes.iterator().next());
 	}

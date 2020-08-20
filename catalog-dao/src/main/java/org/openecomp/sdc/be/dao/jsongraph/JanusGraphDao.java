@@ -22,7 +22,7 @@ package org.openecomp.sdc.be.dao.jsongraph;
 
 import org.janusgraph.core.*;
 import fj.data.Either;
-import org.apache.commons.collections.MapUtils;
+import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.tinkerpop.gremlin.structure.*;
 import org.apache.tinkerpop.gremlin.structure.util.ElementHelper;
@@ -45,7 +45,7 @@ import java.io.IOException;
 import java.util.*;
 import java.util.Map.Entry;
 
-import static org.apache.commons.collections.CollectionUtils.isEmpty;
+import static org.apache.commons.collections4.CollectionUtils.isEmpty;
 
 
 public class JanusGraphDao {

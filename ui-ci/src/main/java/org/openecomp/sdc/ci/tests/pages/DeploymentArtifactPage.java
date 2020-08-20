@@ -21,7 +21,7 @@
 package org.openecomp.sdc.ci.tests.pages;
 
 import com.aventstack.extentreports.Status;
-import org.apache.commons.lang.WordUtils;
+import org.apache.commons.lang3.WordUtils;
 import org.openecomp.sdc.ci.tests.datatypes.ArtifactInfo;
 import org.openecomp.sdc.ci.tests.datatypes.DataTestIdEnum;
 import org.openecomp.sdc.ci.tests.datatypes.enums.ArtifactTypeEnum;

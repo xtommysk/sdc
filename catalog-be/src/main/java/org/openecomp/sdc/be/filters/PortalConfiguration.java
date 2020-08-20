@@ -21,7 +21,7 @@
 package org.openecomp.sdc.be.filters;
 
 import com.google.common.annotations.VisibleForTesting;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.onap.portalsdk.core.onboarding.util.PortalApiProperties;
 import org.onap.sdc.security.IPortalConfiguration;
 import org.onap.sdc.security.PortalClient;

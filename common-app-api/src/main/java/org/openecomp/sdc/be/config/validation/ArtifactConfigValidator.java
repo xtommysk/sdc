@@ -22,7 +22,7 @@ package org.openecomp.sdc.be.config.validation;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.openecomp.sdc.be.config.ArtifactConfiguration;
 import org.openecomp.sdc.be.config.Configuration;
 import org.openecomp.sdc.be.config.exception.MissingBaseArtifactConfigException;

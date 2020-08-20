@@ -33,7 +33,7 @@ import org.openecomp.sdc.common.log.wrappers.Logger;
 import java.util.List;
 import java.util.function.Consumer;
 
-import static org.apache.commons.collections.CollectionUtils.isEmpty;
+import static org.apache.commons.collections4.CollectionUtils.isEmpty;
 @org.springframework.stereotype.Component
 public class GroupMembersUpdateOperation implements OnComponentInstanceChangeOperation {
 

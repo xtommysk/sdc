@@ -21,7 +21,7 @@
 package org.openecomp.sdc.be.components.health;
 
 import com.google.common.annotations.VisibleForTesting;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.onap.portalsdk.core.onboarding.exception.CipherUtilException;
 import org.onap.portalsdk.core.onboarding.util.PortalApiProperties;
 import org.openecomp.sdc.be.config.Configuration;

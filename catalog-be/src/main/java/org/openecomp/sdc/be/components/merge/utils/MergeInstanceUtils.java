@@ -21,6 +21,7 @@
 package org.openecomp.sdc.be.components.merge.utils;
 
 import fj.data.Either;
+import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.openecomp.sdc.be.components.impl.utils.ExceptionUtils;
@@ -157,7 +158,7 @@ public class MergeInstanceUtils {
         }
         else {
             instanceBuildingBlocks = recursiveScanForAtomicBuildingBlocks(component);
-            if(org.apache.commons.collections.MapUtils.isNotEmpty(component.getCapabilities()) || org.apache.commons.collections.MapUtils.isNotEmpty(component.getRequirements())) {
+            if(MapUtils.isNotEmpty(component.getCapabilities()) || MapUtils.isNotEmpty(component.getRequirements())) {
                 ComponentInstanceBuildingBlocks nonAtomicBlocks = ComponentInstanceBuildingBlocks.of(new ArrayList<>(), singletonList(componentInstance));
                 return ComponentInstanceBuildingBlocks.merge(instanceBuildingBlocks, nonAtomicBlocks);
             }

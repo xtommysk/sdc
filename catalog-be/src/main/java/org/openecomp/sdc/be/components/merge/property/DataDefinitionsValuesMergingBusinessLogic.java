@@ -27,7 +27,7 @@ import org.springframework.stereotype.Component;
 import java.util.Collections;
 import java.util.List;
 
-import static org.apache.commons.collections.CollectionUtils.isEmpty;
+import static org.apache.commons.collections4.CollectionUtils.isEmpty;
 import static org.openecomp.sdc.be.components.merge.property.PropertyInstanceMergeDataBuilder.buildDataForMerging;
 
 @Component

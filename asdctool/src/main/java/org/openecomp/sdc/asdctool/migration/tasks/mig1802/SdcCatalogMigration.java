@@ -21,7 +21,7 @@
 package org.openecomp.sdc.asdctool.migration.tasks.mig1802;
 
 import fj.data.Either;
-import org.apache.commons.collections.ListUtils;
+import org.apache.commons.collections4.ListUtils;
 import org.apache.tinkerpop.gremlin.structure.Direction;
 import org.openecomp.sdc.asdctool.migration.core.DBVersion;
 import org.openecomp.sdc.asdctool.migration.core.task.Migration;

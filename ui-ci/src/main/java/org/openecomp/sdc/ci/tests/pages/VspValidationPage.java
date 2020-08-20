@@ -17,7 +17,7 @@
 package org.openecomp.sdc.ci.tests.pages;
 
 import com.aventstack.extentreports.Status;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.openecomp.sdc.ci.tests.datatypes.DataTestIdEnum;
 import org.openecomp.sdc.ci.tests.execute.setup.SetupCDTest;
 import org.openecomp.sdc.ci.tests.utilities.GeneralUIUtils;

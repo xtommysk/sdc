@@ -20,7 +20,7 @@
 
 package org.openecomp.sdc.be.components.merge.input;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.openecomp.sdc.be.dao.utils.MapUtil;
 import org.openecomp.sdc.be.model.InputDefinition;
 

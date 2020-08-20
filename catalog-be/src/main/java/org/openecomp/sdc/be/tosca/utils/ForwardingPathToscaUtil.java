@@ -21,7 +21,7 @@
 package org.openecomp.sdc.be.tosca.utils;
 
 import fj.data.Either;
-import org.apache.commons.collections.MapUtils;
+import org.apache.commons.collections4.MapUtils;
 import org.openecomp.sdc.be.datatypes.elements.ForwardingPathDataDefinition;
 import org.openecomp.sdc.be.datatypes.elements.ForwardingPathElementDataDefinition;
 import org.openecomp.sdc.be.model.CapabilityDefinition;

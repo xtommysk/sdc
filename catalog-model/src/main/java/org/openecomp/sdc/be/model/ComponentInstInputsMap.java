@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.apache.commons.collections.MapUtils.isNotEmpty;
+import static org.apache.commons.collections4.MapUtils.isNotEmpty;
 
 public class ComponentInstInputsMap {
 

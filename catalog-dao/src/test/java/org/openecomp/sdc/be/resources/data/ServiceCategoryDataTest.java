@@ -21,7 +21,7 @@
 package org.openecomp.sdc.be.resources.data;
 
 import mockit.Deencapsulation;
-import org.apache.commons.collections.map.HashedMap;
+import org.apache.commons.collections4.map.HashedMap;
 import org.junit.Test;
 
 public class ServiceCategoryDataTest {

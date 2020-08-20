@@ -177,11 +177,11 @@
         <artifactId>slf4j-api</artifactId>
         <version>${slf4j-api.version}</version>
       </dependency>
-      <dependency>
+      <!--<dependency>
         <groupId>org.codehaus.groovy</groupId>
         <artifactId>groovy-all-minimal</artifactId>
         <version>${groovy.minimal.version}</version>
-      </dependency>
+      </dependency>-->
       <dependency>
         <groupId>org.codehaus.janino</groupId>
         <artifactId>janino</artifactId>

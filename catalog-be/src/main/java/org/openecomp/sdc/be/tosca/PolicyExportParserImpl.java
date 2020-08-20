@@ -46,10 +46,10 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import org.springframework.context.event.EventListener;
 
-import static org.apache.commons.collections.CollectionUtils.isEmpty;
-import static org.apache.commons.collections.CollectionUtils.isNotEmpty;
-import static org.apache.commons.collections.MapUtils.isNotEmpty;
-import static org.apache.commons.lang.StringUtils.isNotEmpty;
+import static org.apache.commons.collections4.CollectionUtils.isEmpty;
+import static org.apache.commons.collections4.CollectionUtils.isNotEmpty;
+import static org.apache.commons.collections4.MapUtils.isNotEmpty;
+import static org.apache.commons.lang3.StringUtils.isNotEmpty;
 
 @org.springframework.stereotype.Component
 public class PolicyExportParserImpl implements PolicyExportParser {

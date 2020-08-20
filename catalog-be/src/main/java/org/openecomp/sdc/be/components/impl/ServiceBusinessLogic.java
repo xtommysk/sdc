@@ -22,7 +22,7 @@
 
 package org.openecomp.sdc.be.components.impl;
 
-import static org.apache.commons.collections.CollectionUtils.isNotEmpty;
+import static org.apache.commons.collections4.CollectionUtils.isNotEmpty;
 import static org.openecomp.sdc.be.components.utils.ConsumptionUtils.handleConsumptionInputMappedToCapabilityProperty;
 import static org.openecomp.sdc.be.components.utils.ConsumptionUtils.isAssignedValueFromValidType;
 import static org.openecomp.sdc.be.components.utils.InterfaceOperationUtils.getOperationOutputName;
@@ -54,8 +54,8 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.MapUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.collections4.ListUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.ImmutablePair;

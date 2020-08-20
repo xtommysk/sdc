@@ -22,7 +22,7 @@ package org.openecomp.sdc.be.model.utils;
 
 import com.google.common.base.Strings;
 import fj.data.Either;
-import org.apache.commons.collections.SetUtils;
+import org.apache.commons.collections4.SetUtils;
 import org.openecomp.sdc.be.dao.utils.MapUtil;
 import org.openecomp.sdc.be.model.*;
 import org.openecomp.sdc.be.model.operations.api.StorageOperationStatus;

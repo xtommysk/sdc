@@ -28,7 +28,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.onap.sdc.tosca.services.YamlUtil;
 import org.openecomp.core.converter.impl.pnfd.parser.TransformationYamlParser;
 import org.openecomp.core.converter.pnfd.model.Transformation;

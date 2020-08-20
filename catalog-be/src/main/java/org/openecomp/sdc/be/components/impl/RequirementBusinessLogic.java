@@ -17,8 +17,8 @@
 package org.openecomp.sdc.be.components.impl;
 
 import fj.data.Either;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.openecomp.sdc.be.components.impl.exceptions.ComponentException;
 import org.openecomp.sdc.be.components.validation.RequirementValidation;
 import org.openecomp.sdc.be.dao.api.ActionStatus;
@@ -114,7 +114,7 @@ public class RequirementBusinessLogic extends BaseBusinessLogic {
             List<RequirementDefinition> requirementsListStoredInComponent = null;
             Map<String, List<RequirementDefinition>> storedComponentRequirements
                     = storedComponent.getRequirements();
-            if (org.apache.commons.collections.MapUtils.isNotEmpty(storedComponentRequirements)) {
+            if (org.apache.commons.collections4.MapUtils.isNotEmpty(storedComponentRequirements)) {
                 RequirementDefinition requirementDefinitionToGetType = requirementDefinitions.get(0);
                 if(Objects.isNull(requirementDefinitionToGetType)) {
                      return Either.right(componentsUtils.getResponseFormat(ActionStatus.INVALID_CONTENT));
@@ -124,7 +124,7 @@ public class RequirementBusinessLogic extends BaseBusinessLogic {
                         .getCapability(), storedComponentRequirements);
             }
             List<RequirementDefinition> requirementsToReturn;
-            if (org.apache.commons.collections.CollectionUtils
+            if (org.apache.commons.collections4.CollectionUtils
                     .isNotEmpty(requirementsListStoredInComponent)) {
                 List<RequirementDefinition> requirementDefToCreate = requirementDefinitions.stream()
                         .map(requirementDefinition -> initiateNewRequirement(storedComponent, requirementDefinition))
@@ -185,7 +185,7 @@ public class RequirementBusinessLogic extends BaseBusinessLogic {
             List<RequirementDefinition> requirementsListStoredInComponent = null;
             Map<String, List<RequirementDefinition>> storedComponentRequirements
                     = storedComponent.getRequirements();
-            if (org.apache.commons.collections.MapUtils.isNotEmpty(storedComponentRequirements)) {
+            if (org.apache.commons.collections4.MapUtils.isNotEmpty(storedComponentRequirements)) {
                 RequirementDefinition requirementDefinitionToGetType = requirementDefinitions.get(0);
                 if(Objects.isNull(requirementDefinitionToGetType)) {
                     return Either.right(componentsUtils.getResponseFormat(ActionStatus.INVALID_CONTENT));
@@ -195,7 +195,7 @@ public class RequirementBusinessLogic extends BaseBusinessLogic {
                         .getCapability(), storedComponentRequirements);
             }
             List<RequirementDefinition> requirementsToReturn = null;
-            if (org.apache.commons.collections.CollectionUtils
+            if (org.apache.commons.collections4.CollectionUtils
                     .isNotEmpty(requirementsListStoredInComponent)) {
                 List<RequirementDefinition> requirementDefToUpdate = new ArrayList<>();
                 if (requirementDefinitions.stream().anyMatch(requirementDefinition ->

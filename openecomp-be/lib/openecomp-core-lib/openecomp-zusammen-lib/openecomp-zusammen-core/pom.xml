@@ -27,7 +27,6 @@
       <groupId>com.amdocs.zusammen</groupId>
       <artifactId>zusammen-adaptor-inbound-impl</artifactId>
       <version>${zusammen.version}</version>
-      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>com.amdocs.zusammen.plugin</groupId>

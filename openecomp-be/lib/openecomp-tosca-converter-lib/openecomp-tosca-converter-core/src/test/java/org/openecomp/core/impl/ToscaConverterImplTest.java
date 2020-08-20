@@ -19,7 +19,7 @@
 
 package org.openecomp.core.impl;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.junit.Assert;
 import org.junit.Test;
 import org.onap.sdc.tosca.datatypes.model.*;

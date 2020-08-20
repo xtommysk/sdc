@@ -33,7 +33,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static org.apache.commons.collections.MapUtils.isNotEmpty;
+import static org.apache.commons.collections4.MapUtils.isNotEmpty;
 
 @org.springframework.stereotype.Component
 public class ComponentInstanceCapabilitiesPropertiesMerge implements ComponentInstanceMergeInterface {

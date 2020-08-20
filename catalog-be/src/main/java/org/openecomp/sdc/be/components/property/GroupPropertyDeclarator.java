@@ -21,7 +21,7 @@
 package org.openecomp.sdc.be.components.property;
 
 import fj.data.Either;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.openecomp.sdc.be.datatypes.elements.PropertyDataDefinition;
 import org.openecomp.sdc.be.impl.ComponentsUtils;
 import org.openecomp.sdc.be.model.Component;
@@ -40,7 +40,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 import static java.util.stream.Collectors.toList;
-import static org.apache.commons.collections.CollectionUtils.isEmpty;
+import static org.apache.commons.collections4.CollectionUtils.isEmpty;
 import static org.openecomp.sdc.be.components.property.GetInputUtils.isGetInputValueForInput;
 
 @org.springframework.stereotype.Component

@@ -17,9 +17,9 @@
 package org.openecomp.sdc.be.components.impl;
 
 import fj.data.Either;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.MapUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.collections4.MapUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.openecomp.sdc.be.components.impl.exceptions.ComponentException;
 import org.openecomp.sdc.be.components.validation.CapabilitiesValidation;
 import org.openecomp.sdc.be.config.BeEcompErrorManager;
@@ -215,7 +215,7 @@ public class CapabilitiesBusinessLogic extends BaseBusinessLogic {
             Either<List<CapabilityDefinition>, StorageOperationStatus> result;
             List<CapabilityDefinition> capabilitiesListStoredInComponent = null;
             Map<String, List<CapabilityDefinition>> storedComponentCapabilities = storedComponent.getCapabilities();
-            if (org.apache.commons.collections.MapUtils.isNotEmpty(storedComponentCapabilities)) {
+            if (MapUtils.isNotEmpty(storedComponentCapabilities)) {
                 CapabilityDefinition capabilityDefinitionToGetType = capabilityDefinitions.get(0);
                 if (Objects.isNull(capabilityDefinitionToGetType)) {
                     return Either.right(componentsUtils.getResponseFormat(ActionStatus.INVALID_CONTENT));
