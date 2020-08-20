@@ -16,6 +16,7 @@
 
 package org.onap.sdc.tosca.services;
 
+import java.beans.IntrospectionException;
 import java.util.List;
 import java.util.Optional;
 import org.slf4j.Logger;
@@ -243,13 +244,14 @@ public class YamlUtil {
   public class MyPropertyUtils extends PropertyUtils {
     //Unsorted properties
     @Override
-    protected Set<Property> createPropertySet(Class<? extends Object> type, BeanAccess bnAccess) {
+    protected Set<Property> createPropertySet(Class<? extends Object> type, BeanAccess bnAccess)
+            throws IntrospectionException {
       return new LinkedHashSet<>(getPropertiesMap(type,
           BeanAccess.FIELD).values());
     }
 
     @Override
-    public Property getProperty(Class<?> type, String name) {
+    public Property getProperty(Class<?> type, String name)  throws IntrospectionException{
       String updatedName = name;
       if (DEFAULT.equals(updatedName)) {
         updatedName = DEFAULT_STR;
@@ -274,8 +276,8 @@ public class YamlUtil {
     }
 
     @Override
-    protected Map<Object, Object> createDefaultMap(int initSize) {
-      final Map<Object, Object> delegate = super.createDefaultMap(initSize);
+    protected Map<Object, Object> createDefaultMap() {
+      final Map<Object, Object> delegate = super.createDefaultMap();
       return new AbstractMap<Object, Object>() {
         @Override
         public Object put(Object key, Object value) {

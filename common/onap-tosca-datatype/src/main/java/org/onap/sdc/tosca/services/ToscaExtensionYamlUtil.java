@@ -23,6 +23,8 @@ import org.yaml.snakeyaml.introspector.PropertyUtils;
 import org.yaml.snakeyaml.nodes.MappingNode;
 import org.yaml.snakeyaml.nodes.NodeId;
 
+import java.beans.IntrospectionException;
+
 
 public class ToscaExtensionYamlUtil extends YamlUtil {
 
@@ -50,7 +52,7 @@ public class ToscaExtensionYamlUtil extends YamlUtil {
     public class ToscaPropertyUtilsWithHeatExtension extends MyPropertyUtils {
 
         @Override
-        public Property getProperty(Class<? extends Object> type, String name) {
+        public Property getProperty(Class<? extends Object> type, String name)  throws IntrospectionException{
             Class<? extends Object> classType = type;
             try {
                 if (type.equals(Class.forName(TOSCA_MODEL_PARAMETER_DEFINITION))) {
