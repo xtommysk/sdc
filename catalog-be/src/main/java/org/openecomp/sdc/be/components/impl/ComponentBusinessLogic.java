@@ -27,7 +27,7 @@ import io.vavr.Function3;
 import java.util.Optional;
 import java.util.function.BiFunction;
 import java.util.function.BooleanSupplier;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.openecomp.sdc.be.catalog.enums.ChangeTypeEnum;

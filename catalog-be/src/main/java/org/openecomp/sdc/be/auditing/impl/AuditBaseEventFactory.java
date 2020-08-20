@@ -20,7 +20,7 @@
 
 package org.openecomp.sdc.be.auditing.impl;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.javatuples.Pair;
 import org.openecomp.sdc.be.auditing.api.AuditEventFactory;
 import org.openecomp.sdc.be.model.User;

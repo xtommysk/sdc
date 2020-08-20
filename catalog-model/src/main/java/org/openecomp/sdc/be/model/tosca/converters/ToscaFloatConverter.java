@@ -20,7 +20,7 @@
 
 package org.openecomp.sdc.be.model.tosca.converters;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.openecomp.sdc.be.model.DataTypeDefinition;
 
 import java.math.BigDecimal;

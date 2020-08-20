@@ -22,7 +22,7 @@ package org.openecomp.sdc.be.components.scheduledtasks;
 
 import com.google.common.annotations.VisibleForTesting;
 import fj.data.Either;
-import org.apache.commons.lang.math.NumberUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.commons.lang3.concurrent.BasicThreadFactory;
 import org.openecomp.sdc.be.components.distribution.engine.EnvironmentsEngine;
 import org.openecomp.sdc.be.config.ConfigurationManager;
@@ -46,7 +46,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
-import static org.apache.commons.collections.CollectionUtils.isEmpty;
+import static org.apache.commons.collections4.CollectionUtils.isEmpty;
 import static org.openecomp.sdc.common.datastructure.FunctionalInterfaces.convertToFunction;
 
 @Component("recoveryThreadManager")

@@ -20,7 +20,7 @@
 
 package org.openecomp.sdc.be.components.impl.policy;
 
-import org.apache.commons.collections.MapUtils;
+import org.apache.commons.collections4.MapUtils;
 import org.openecomp.sdc.be.datatypes.elements.PolicyTargetType;
 import org.openecomp.sdc.be.datatypes.enums.PromoteVersionEnum;
 import org.openecomp.sdc.be.model.PolicyDefinition;
@@ -32,7 +32,7 @@ import java.util.Map;
 import java.util.function.UnaryOperator;
 
 import static java.util.Collections.emptyList;
-import static org.apache.commons.collections.CollectionUtils.isEmpty;
+import static org.apache.commons.collections4.CollectionUtils.isEmpty;
 
 /**
  * A Helper class which handles altering the targets state of a policy

@@ -21,7 +21,7 @@ package org.openecomp.core.converter.impl.pnfd;
 
 import java.util.Set;
 import java.util.stream.Collectors;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.onap.sdc.tosca.datatypes.model.ServiceTemplate;
 import org.openecomp.core.converter.ServiceTemplateReaderService;
 import org.openecomp.core.converter.impl.pnfd.factory.PnfdBlockParserFactory;

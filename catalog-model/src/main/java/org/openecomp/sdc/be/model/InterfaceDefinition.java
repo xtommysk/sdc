@@ -21,7 +21,7 @@
 package org.openecomp.sdc.be.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.apache.commons.collections.MapUtils;
+import org.apache.commons.collections4.MapUtils;
 import org.openecomp.sdc.be.datatypes.elements.InterfaceDataDefinition;
 import org.openecomp.sdc.be.datatypes.elements.OperationDataDefinition;
 

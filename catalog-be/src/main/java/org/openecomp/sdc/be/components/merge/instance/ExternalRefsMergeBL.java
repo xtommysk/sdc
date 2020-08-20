@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import static org.apache.commons.collections.MapUtils.isEmpty;
+import static org.apache.commons.collections4.MapUtils.isEmpty;
 
 @org.springframework.stereotype.Component
 public class ExternalRefsMergeBL implements ComponentInstanceMergeInterface {

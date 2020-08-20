@@ -21,7 +21,7 @@
 package org.openecomp.sdc.ci.tests.utils.validation;
 
 import com.google.gson.*;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.openecomp.sdc.be.dao.utils.UserStatusEnum;
 import org.openecomp.sdc.be.model.User;
 import org.openecomp.sdc.ci.tests.datatypes.enums.ErrorInfo;

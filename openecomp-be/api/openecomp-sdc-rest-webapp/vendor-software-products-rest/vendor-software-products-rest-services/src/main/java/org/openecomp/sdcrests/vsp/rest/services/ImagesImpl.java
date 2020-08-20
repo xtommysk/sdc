@@ -21,7 +21,7 @@
 package org.openecomp.sdcrests.vsp.rest.services;
 
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.openecomp.sdc.vendorsoftwareproduct.ComponentManager;
 import org.openecomp.sdc.vendorsoftwareproduct.ComponentManagerFactory;
 import org.openecomp.sdc.vendorsoftwareproduct.ImageManager;

@@ -23,8 +23,8 @@ package org.openecomp.sdc.be.model;
 import static java.util.Collections.emptyList;
 import static java.util.Collections.emptyMap;
 import static java.util.stream.Collectors.toMap;
-import static org.apache.commons.collections.CollectionUtils.isEmpty;
-import static org.apache.commons.collections.MapUtils.isEmpty;
+import static org.apache.commons.collections4.CollectionUtils.isEmpty;
+import static org.apache.commons.collections4.MapUtils.isEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.common.collect.Maps;
@@ -39,7 +39,8 @@ import java.util.stream.Collectors;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import org.apache.commons.collections.MapUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.collections4.MapUtils;
 import org.openecomp.sdc.be.config.ConfigurationManager;
 import org.openecomp.sdc.be.dao.utils.MapUtil;
 import org.openecomp.sdc.be.datatypes.elements.CINodeFilterDataDefinition;
@@ -475,7 +476,7 @@ public abstract class Component implements PropertiesOwner {
     }
 
     public void addProperty(PropertyDefinition propertyDefinition) {
-        if (org.apache.commons.collections.CollectionUtils.isEmpty(this.properties)) {
+        if (CollectionUtils.isEmpty(this.properties)) {
             this.properties = new ArrayList<>();
         }
 

@@ -19,7 +19,7 @@ package org.openecomp.sdc.be.components.impl;
 
 import fj.data.Either;
 import java.util.ArrayList;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;

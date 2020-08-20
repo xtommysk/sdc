@@ -35,7 +35,7 @@ import java.util.concurrent.Future;
 import java.util.stream.Stream;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.Option;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.openecomp.core.tools.exceptions.HealingRuntimeException;
 import org.openecomp.core.tools.loaders.VersionInfoCassandraLoader;
 import org.openecomp.sdc.healing.api.HealingManager;

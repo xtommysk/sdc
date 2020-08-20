@@ -39,8 +39,8 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
-import static org.apache.commons.collections.MapUtils.isEmpty;
-import static org.apache.commons.collections.MapUtils.isNotEmpty;
+import static org.apache.commons.collections4.MapUtils.isEmpty;
+import static org.apache.commons.collections4.MapUtils.isNotEmpty;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 import static org.apache.commons.lang3.StringUtils.isNotEmpty;
 import static org.openecomp.sdc.common.api.Constants.GROUP_POLICY_NAME_DELIMETER;

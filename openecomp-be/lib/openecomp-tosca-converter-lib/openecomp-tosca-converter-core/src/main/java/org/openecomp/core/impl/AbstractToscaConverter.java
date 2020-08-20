@@ -43,7 +43,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.regex.Pattern;
 import javax.validation.constraints.NotNull;
-import org.apache.commons.collections.MapUtils;
+import org.apache.commons.collections4.MapUtils;
 import org.onap.sdc.tosca.datatypes.model.DataType;
 import org.onap.sdc.tosca.datatypes.model.Import;
 import org.onap.sdc.tosca.datatypes.model.NodeType;

@@ -20,7 +20,7 @@
 
 package org.openecomp.sdc.be.components.distribution.engine;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.openecomp.sdc.be.components.validation.ServiceDistributionValidation;
 import org.openecomp.sdc.be.config.BeEcompErrorManager;

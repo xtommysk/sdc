@@ -37,7 +37,7 @@ import org.openecomp.sdc.exception.ResponseFormat;
 
 import java.util.List;
 
-import static org.apache.commons.collections.CollectionUtils.isEmpty;
+import static org.apache.commons.collections4.CollectionUtils.isEmpty;
 
 @org.springframework.stereotype.Component
 public class ServiceCategoryValidator implements ServiceFieldValidator {

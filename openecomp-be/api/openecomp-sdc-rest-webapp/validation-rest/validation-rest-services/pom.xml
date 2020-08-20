@@ -127,7 +127,6 @@
       <groupId>org.glassfish.jersey.media</groupId>
       <artifactId>jersey-media-multipart</artifactId>
       <version>${jersey-bom.version}</version>
-      <scope>compile</scope>
     </dependency>
   </dependencies>
 

@@ -23,7 +23,7 @@ import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.openecomp.sdc.common.api.ArtifactGroupTypeEnum;
 
 /**

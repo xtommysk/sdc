@@ -23,6 +23,7 @@ package org.openecomp.sdc.be.impl.aaf;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
 import org.hibernate.validator.internal.util.annotationfactory.AnnotationDescriptor;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -19,7 +19,7 @@
 
 package org.openecomp.sdc.be.csar.pnf;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.onap.sdc.tosca.services.YamlUtil;
 import org.openecomp.sdc.be.csar.pnf.PnfSoftwareInformation.PnfSoftwareInformationField;
 import org.openecomp.sdc.be.csar.pnf.PnfSoftwareVersion.PnfSoftwareVersionField;

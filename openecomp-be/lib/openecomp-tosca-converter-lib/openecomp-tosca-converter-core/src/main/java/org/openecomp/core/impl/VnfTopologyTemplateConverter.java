@@ -22,7 +22,7 @@
 
 package org.openecomp.core.impl;
 
-import org.apache.commons.collections.MapUtils;
+import org.apache.commons.collections4.MapUtils;
 import org.onap.sdc.tosca.datatypes.model.ArtifactDefinition;
 import org.onap.sdc.tosca.datatypes.model.CapabilityAssignment;
 import org.onap.sdc.tosca.datatypes.model.NodeFilter;

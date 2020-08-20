@@ -21,7 +21,7 @@
 package org.openecomp.sdc.be.components.property;
 
 import fj.data.Either;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.openecomp.sdc.be.components.property.propertytopolicydeclarators.ComponentInstancePropertyToPolicyDeclarator;
 import org.openecomp.sdc.be.components.property.propertytopolicydeclarators.ComponentPropertyToPolicyDeclarator;
@@ -40,7 +40,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static org.apache.commons.collections.MapUtils.isNotEmpty;
+import static org.apache.commons.collections4.MapUtils.isNotEmpty;
 
 @org.springframework.stereotype.Component
 public class PropertyDeclarationOrchestrator {

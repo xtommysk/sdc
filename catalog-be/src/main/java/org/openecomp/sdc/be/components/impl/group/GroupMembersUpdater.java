@@ -20,14 +20,14 @@
 
 package org.openecomp.sdc.be.components.impl.group;
 
-import org.apache.commons.collections.MapUtils;
+import org.apache.commons.collections4.MapUtils;
 import org.openecomp.sdc.be.model.GroupDefinition;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Map;
 
-import static org.apache.commons.collections.MapUtils.isEmpty;
+import static org.apache.commons.collections4.MapUtils.isEmpty;
 
 /**
  * A Helper class which handles altering the members state of a group

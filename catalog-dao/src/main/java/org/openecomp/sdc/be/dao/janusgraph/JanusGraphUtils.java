@@ -29,7 +29,7 @@ import java.util.Map.Entry;
 
 import static org.janusgraph.core.attribute.Contain.NOT_IN;
 import static java.util.Collections.emptyMap;
-import static org.apache.commons.collections.CollectionUtils.isEmpty;
+import static org.apache.commons.collections4.CollectionUtils.isEmpty;
 
 public class JanusGraphUtils {
 

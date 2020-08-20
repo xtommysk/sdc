@@ -104,7 +104,7 @@ import java.util.Set;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-import static org.apache.commons.lang.BooleanUtils.isTrue;
+import static org.apache.commons.lang3.BooleanUtils.isTrue;
 import static org.openecomp.sdc.be.components.impl.ImportUtils.Constants.DEFAULT_ICON;
 
 @org.springframework.stereotype.Component("elementsBusinessLogic")

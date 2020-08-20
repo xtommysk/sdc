@@ -15,7 +15,7 @@
  */
 package org.openecomp.sdc.itempermissions.impl;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.openecomp.sdc.common.errors.CoreException;
 import org.openecomp.sdc.itempermissions.PermissionsRules;
 import org.openecomp.sdc.itempermissions.PermissionsServices;
