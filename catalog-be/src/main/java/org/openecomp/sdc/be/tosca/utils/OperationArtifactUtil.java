@@ -24,7 +24,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 import org.apache.commons.collections4.MapUtils;
-import org.apache.commons.lang3.WordUtils;
+import org.apache.commons.text.WordUtils;
 import org.openecomp.sdc.be.components.impl.ImportUtils.Constants;
 import org.openecomp.sdc.be.datatypes.components.ResourceMetadataDataDefinition;
 import org.openecomp.sdc.be.datatypes.elements.ArtifactDataDefinition;

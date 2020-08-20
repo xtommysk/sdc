@@ -68,8 +68,8 @@
       <version>${commons.validator.version}</version>
       <exclusions>
         <exclusion>
-          <artifactId>commons-collections4</artifactId>
-          <groupId>org.apache.commons</groupId>
+          <artifactId>commons-collections</artifactId>
+          <groupId>commons-collections</groupId>
         </exclusion>
       </exclusions>
     </dependency>

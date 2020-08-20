@@ -21,7 +21,7 @@
 package org.openecomp.sdc.ci.tests.verificator;
 
 import com.aventstack.extentreports.Status;
-import org.apache.commons.lang3.text.WordUtils;
+import org.apache.commons.text.WordUtils;
 import org.openecomp.sdc.be.dao.api.ActionStatus;
 import org.openecomp.sdc.be.model.User;
 import org.openecomp.sdc.ci.tests.datatypes.enums.UserRoleEnum;

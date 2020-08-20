@@ -29,12 +29,14 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import static org.apache.commons.collections4.CollectionUtils.isNotEmpty;
+
 public final class CollectionUtils {
     private CollectionUtils() {
     }
 
     public static <T> List<T> safeGetList(List<T> listToCheck) {
-        return org.apache.commons.collections4.CollectionUtils.isNotEmpty(listToCheck) ? listToCheck : Collections.emptyList();
+        return isNotEmpty(listToCheck) ? listToCheck : Collections.emptyList();
     }
 
     /**

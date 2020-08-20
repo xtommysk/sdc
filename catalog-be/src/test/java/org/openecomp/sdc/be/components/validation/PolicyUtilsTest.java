@@ -41,6 +41,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
+import static org.apache.commons.collections4.CollectionUtils.isNotEmpty;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -213,7 +214,7 @@ public class PolicyUtilsTest extends BeConfDependentTest{
 	}
 
 	private void validateExtractedPolicies(Set<String> policyTypes, String expectedType) {
-		assertTrue(org.apache.commons.collections4.CollectionUtils.isNotEmpty(policyTypes));
+		assertTrue(isNotEmpty(policyTypes));
 		assertEquals(1, policyTypes.size());
 		assertEquals(expectedType, policyTypes.iterator().next());
 	}

@@ -18,6 +18,7 @@ package org.openecomp.sdc.be.components.impl;
 
 import fj.data.Either;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.openecomp.sdc.be.components.impl.exceptions.ComponentException;
 import org.openecomp.sdc.be.components.validation.RequirementValidation;
@@ -114,7 +115,7 @@ public class RequirementBusinessLogic extends BaseBusinessLogic {
             List<RequirementDefinition> requirementsListStoredInComponent = null;
             Map<String, List<RequirementDefinition>> storedComponentRequirements
                     = storedComponent.getRequirements();
-            if (org.apache.commons.collections4.MapUtils.isNotEmpty(storedComponentRequirements)) {
+            if (MapUtils.isNotEmpty(storedComponentRequirements)) {
                 RequirementDefinition requirementDefinitionToGetType = requirementDefinitions.get(0);
                 if(Objects.isNull(requirementDefinitionToGetType)) {
                      return Either.right(componentsUtils.getResponseFormat(ActionStatus.INVALID_CONTENT));
@@ -185,7 +186,7 @@ public class RequirementBusinessLogic extends BaseBusinessLogic {
             List<RequirementDefinition> requirementsListStoredInComponent = null;
             Map<String, List<RequirementDefinition>> storedComponentRequirements
                     = storedComponent.getRequirements();
-            if (org.apache.commons.collections4.MapUtils.isNotEmpty(storedComponentRequirements)) {
+            if (MapUtils.isNotEmpty(storedComponentRequirements)) {
                 RequirementDefinition requirementDefinitionToGetType = requirementDefinitions.get(0);
                 if(Objects.isNull(requirementDefinitionToGetType)) {
                     return Either.right(componentsUtils.getResponseFormat(ActionStatus.INVALID_CONTENT));
