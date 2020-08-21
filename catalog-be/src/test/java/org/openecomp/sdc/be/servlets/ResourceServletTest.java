@@ -27,7 +27,7 @@ import com.google.gson.GsonBuilder;
 import fj.data.Either;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.tuple.ImmutablePair;
-import org.apache.commons.text.StrSubstitutor;
+import org.apache.commons.text.StringSubstitutor;
 import org.apache.http.HttpStatus;
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
 import org.glassfish.jersey.server.ResourceConfig;
@@ -272,7 +272,7 @@ public class ResourceServletTest extends JerseyTest {
         parametersMap.put("resourceId", resourceId);
 
         String formatEndpoint = "/v1/catalog/resources/{resourceId}";
-        String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+        String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
         when(resourceBusinessLogic.deleteResource(any(), any(User.class)))
                 .thenReturn(notFoundResponseFormat);
@@ -294,7 +294,7 @@ public class ResourceServletTest extends JerseyTest {
         parametersMap.put(RESOURCE_ID, resourceId);
 
         String formatEndpoint = "/v1/catalog/resources/{resourceId}";
-        String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+        String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
         when(resourceBusinessLogic.deleteResource(any(), any(User.class)))
                 .thenThrow(new JSONException("Test exception: deleteResource"));
@@ -316,7 +316,7 @@ public class ResourceServletTest extends JerseyTest {
         parametersMap.put("resourceId", resourceId);
 
         String formatEndpoint = "/v1/catalog/resources/{resourceId}";
-        String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+        String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
         when(resourceBusinessLogic.deleteResource(eq(resourceId.toLowerCase()), any(User.class)))
                 .thenReturn(noContentResponseFormat);
@@ -340,7 +340,7 @@ public class ResourceServletTest extends JerseyTest {
         parametersMap.put(VERSION, version);
 
         String formatEndpoint = "/v1/catalog/resources/{resourceName}/{version}";
-        String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+        String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
         when(resourceBusinessLogic.deleteResourceByNameAndVersion(eq(resourceName), eq(version), any(User.class)))
                 .thenReturn(notFoundResponseFormat);
@@ -364,7 +364,7 @@ public class ResourceServletTest extends JerseyTest {
         parametersMap.put(VERSION, version);
 
         String formatEndpoint = "/v1/catalog/resources/{resourceName}/{version}";
-        String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+        String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
         when(resourceBusinessLogic.deleteResourceByNameAndVersion(eq(resourceName), eq(version), any(User.class)))
                 .thenThrow(new JSONException("Test exception: deleteResourceByNameAndVersion"));
@@ -388,7 +388,7 @@ public class ResourceServletTest extends JerseyTest {
         parametersMap.put(VERSION, version);
 
         String formatEndpoint = "/v1/catalog/resources/{resourceName}/{version}";
-        String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+        String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
         when(resourceBusinessLogic.deleteResourceByNameAndVersion(eq(resourceName), eq(version), any(User.class)))
                 .thenReturn(noContentResponseFormat);
@@ -410,7 +410,7 @@ public class ResourceServletTest extends JerseyTest {
         parametersMap.put(RESOURCE_ID, resourceId);
 
         String formatEndpoint = "/v1/catalog/resources/{resourceId}";
-        String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+        String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
         Either<Resource, ResponseFormat> getResourceByIdEither = Either.right(notFoundResponseFormat);
         when(resourceBusinessLogic.getResource(eq(resourceId.toLowerCase()), any(User.class)))
@@ -433,7 +433,7 @@ public class ResourceServletTest extends JerseyTest {
         parametersMap.put(RESOURCE_ID, resourceId);
 
         String formatEndpoint = "/v1/catalog/resources/{resourceId}";
-        String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+        String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
         given(resourceBusinessLogic.getResource(eq(resourceId.toLowerCase()), any(User.class)))
                 .willAnswer( invocation -> { throw new IOException("Test exception: getResourceById"); });
@@ -455,7 +455,7 @@ public class ResourceServletTest extends JerseyTest {
         parametersMap.put(RESOURCE_ID, resourceId);
 
         String formatEndpoint = "/v1/catalog/resources/{resourceId}";
-        String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+        String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
         Either<Resource, ResponseFormat> getResourceByIdEither = Either.left(new Resource());
         when(resourceBusinessLogic.getResource(eq(resourceId.toLowerCase()), any(User.class)))
@@ -480,7 +480,7 @@ public class ResourceServletTest extends JerseyTest {
         parametersMap.put(RESOURCE_VERSION, resourceVersion);
 
         String formatEndpoint = "/v1/catalog/resources/resourceName/{resourceName}/resourceVersion/{resourceVersion}";
-        String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+        String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
         Either<Resource, ResponseFormat> getResourceByNameAndVersionEither = Either.right(notFoundResponseFormat);
         when(resourceBusinessLogic.getResourceByNameAndVersion(eq(resourceName), eq(resourceVersion), eq(user.getUserId())))
@@ -505,7 +505,7 @@ public class ResourceServletTest extends JerseyTest {
         parametersMap.put(RESOURCE_VERSION, resourceVersion);
 
         String formatEndpoint = "/v1/catalog/resources/resourceName/{resourceName}/resourceVersion/{resourceVersion}";
-        String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+        String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
         given(resourceBusinessLogic.getResourceByNameAndVersion(eq(resourceName), eq(resourceVersion), eq(user.getUserId())))
                 .willAnswer( invocation -> { throw new IOException("Test exception: getResourceByNameAndVersion"); });
@@ -529,7 +529,7 @@ public class ResourceServletTest extends JerseyTest {
         parametersMap.put(RESOURCE_VERSION, resourceVersion);
 
         String formatEndpoint = "/v1/catalog/resources/resourceName/{resourceName}/resourceVersion/{resourceVersion}";
-        String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+        String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
         Either<Resource, ResponseFormat> getResourceByNameAndVersionEither = Either.left(new Resource());
         when(resourceBusinessLogic.getResourceByNameAndVersion(eq(resourceName), eq(resourceVersion), eq(user.getUserId())))
@@ -553,7 +553,7 @@ public class ResourceServletTest extends JerseyTest {
         parametersMap.put(RESOURCE_NAME, resourceName);
 
         String formatEndpoint = "/v1/catalog/resources/validate-name/{resourceName}";
-        String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+        String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
         Either<Map<String, Boolean>, ResponseFormat> validateResourceNameEither =
                 Either.right(notFoundResponseFormat);
@@ -580,7 +580,7 @@ public class ResourceServletTest extends JerseyTest {
         parametersMap.put(RESOURCE_NAME, resourceName);
 
         String formatEndpoint = "/v1/catalog/resources/validate-name/{resourceName}";
-        String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+        String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
         Response response = target()
                 .path(path)
@@ -601,7 +601,7 @@ public class ResourceServletTest extends JerseyTest {
         parametersMap.put(RESOURCE_NAME, resourceName);
 
         String formatEndpoint = "/v1/catalog/resources/validate-name/{resourceName}";
-        String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+        String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
         Either<Map<String, Boolean>, ResponseFormat> validateResourceNameEither =
                 Either.left(new HashMap<>());
@@ -699,7 +699,7 @@ public class ResourceServletTest extends JerseyTest {
         parametersMap.put(RESOURCE_ID, resourceId);
 
         String formatEndpoint = "/v1/catalog/resources/{resourceId}/metadata";
-        String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+        String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
         Either<Resource, ResponseFormat> updateResourceMetadataEither = Either.right(badRequestResponseFormat);
 
@@ -728,7 +728,7 @@ public class ResourceServletTest extends JerseyTest {
         parametersMap.put(RESOURCE_ID, resourceId);
 
         String formatEndpoint = "/v1/catalog/resources/{resourceId}/metadata";
-        String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+        String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
         given(componentUtils.convertJsonToObjectUsingObjectMapper(any(), any(), eq(Resource.class),
                 eq(AuditingActionEnum.UPDATE_RESOURCE_METADATA), eq(ComponentTypeEnum.RESOURCE)))
@@ -751,7 +751,7 @@ public class ResourceServletTest extends JerseyTest {
         parametersMap.put(RESOURCE_ID, resourceId);
 
         String formatEndpoint = "/v1/catalog/resources/{resourceId}/metadata";
-        String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+        String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
         Resource initialResource = new Resource();
         Either<Resource, ResponseFormat> updateResourceMetadataEither = Either.left(initialResource);
@@ -781,7 +781,7 @@ public class ResourceServletTest extends JerseyTest {
         parametersMap.put(RESOURCE_ID, resourceId);
 
         String formatEndpoint = "/v1/catalog/resources/{resourceId}";
-        String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+        String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
         Either<Resource, ResponseFormat> updateResourceEither = Either.right(badRequestResponseFormat);
 
@@ -806,7 +806,7 @@ public class ResourceServletTest extends JerseyTest {
         parametersMap.put(RESOURCE_ID, resourceId);
 
         String formatEndpoint = "/v1/catalog/resources/{resourceId}";
-        String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+        String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
         given(componentUtils.convertJsonToObjectUsingObjectMapper(eq(NON_UI_IMPORT_JSON), any(User.class),
                 eq(Resource.class), eq(AuditingActionEnum.UPDATE_RESOURCE_METADATA), eq(ComponentTypeEnum.RESOURCE)))
@@ -829,7 +829,7 @@ public class ResourceServletTest extends JerseyTest {
         parametersMap.put(RESOURCE_ID, resourceId);
 
         String formatEndpoint = "/v1/catalog/resources/{resourceId}";
-        String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+        String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
         Either<Resource, ResponseFormat> updateResourceEither = Either.left(new Resource());
 
@@ -857,7 +857,7 @@ public class ResourceServletTest extends JerseyTest {
         parametersMap.put(CSAR_UUID, csarUuid);
 
         String formatEndpoint = "/v1/catalog/resources/csar/{csaruuid}";
-        String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+        String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
         
         Either<Resource, ResponseFormat> getResourceFromCsarEither = Either.right(notFoundResponseFormat);
         when(resourceBusinessLogic.getLatestResourceFromCsarUuid(eq(csarUuid), any(User.class)))
@@ -880,7 +880,7 @@ public class ResourceServletTest extends JerseyTest {
         parametersMap.put(CSAR_UUID, csarUuid);
 
         String formatEndpoint = "/v1/catalog/resources/csar/{csaruuid}";
-        String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+        String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
         given(resourceBusinessLogic.getLatestResourceFromCsarUuid(eq(csarUuid), any(User.class)))
                 .willAnswer( invocation -> { throw new IOException("Test exception: getResourceFromCsar"); });
@@ -902,7 +902,7 @@ public class ResourceServletTest extends JerseyTest {
         parametersMap.put(CSAR_UUID, csarUuid);
 
         String formatEndpoint = "/v1/catalog/resources/csar/{csaruuid}";
-        String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+        String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
         Either<Resource, ResponseFormat> getResourceFromCsarEither = Either.left(new Resource());
         when(resourceBusinessLogic.getLatestResourceFromCsarUuid(eq(csarUuid), any(User.class)))

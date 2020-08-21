@@ -227,11 +227,11 @@
 
     <!--asm-all-repackaged is a jersey dependency. in current version jersey depends on a version that was compiled using java 9 compiler
         currently our jetty (v9.3.6) does not support java 9. as soon as jetty gets upgraded we will remove this dependency-->
-    <!--dependency>
+    <dependency>
       <groupId>org.glassfish.hk2.external</groupId>
       <artifactId>asm-all-repackaged</artifactId>
       <version>${asm-library.repackaged.version}</version>
-    </dependency-->
+    </dependency>
 
     <dependency>
       <groupId>org.glassfish.jersey.ext</groupId>

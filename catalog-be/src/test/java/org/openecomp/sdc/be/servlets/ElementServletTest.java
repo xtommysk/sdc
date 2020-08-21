@@ -23,7 +23,7 @@
 package org.openecomp.sdc.be.servlets;
 
 import fj.data.Either;
-import org.apache.commons.text.StrSubstitutor;
+import org.apache.commons.text.StringSubstitutor;
 import org.apache.http.HttpStatus;
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
 import org.glassfish.jersey.server.ResourceConfig;
@@ -199,7 +199,7 @@ public class ElementServletTest extends JerseyTest {
 		parametersMap.put(COMPONENT_TYPE, componentType);
 
 		String formatEndpoint = "/v1/categories/{componentType}";
-		String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+		String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
 		ResponseFormat notFoundResponseFormat = new ResponseFormat(HttpStatus.SC_NOT_FOUND);
 		Either<List<CategoryDefinition>, ResponseFormat> getAllCategoriesEither = Either.right(notFoundResponseFormat);
@@ -224,7 +224,7 @@ public class ElementServletTest extends JerseyTest {
 		parametersMap.put(COMPONENT_TYPE, componentType);
 
 		String formatEndpoint = "/v1/categories/{componentType}";
-		String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+		String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
 		when(elementBusinessLogic.getAllCategories(componentType, designerUser.getUserId()))
 				.thenThrow(new RuntimeException("Test exception: getComponentCategories"));
@@ -246,7 +246,7 @@ public class ElementServletTest extends JerseyTest {
 		parametersMap.put(COMPONENT_TYPE, componentType);
 
 		String formatEndpoint = "/v1/categories/{componentType}";
-		String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+		String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
 		Either<List<CategoryDefinition>, ResponseFormat> getAllCategoriesEither = Either.left(new ArrayList<>());
 
@@ -331,7 +331,7 @@ public class ElementServletTest extends JerseyTest {
 		parametersMap.put(COMPONENT_TYPE, componentType);
 
 		String formatEndpoint = "/v1/category/{componentType}";
-		String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+		String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
 		Either<CategoryDefinition, ResponseFormat> createComponentCategoryEither = Either.right(conflictResponseFormat);
 
@@ -355,7 +355,7 @@ public class ElementServletTest extends JerseyTest {
 		parametersMap.put(COMPONENT_TYPE, componentType);
 
 		String formatEndpoint = "/v1/category/{componentType}";
-		String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+		String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
 		when(elementBusinessLogic.createCategory(any(), eq(componentType), eq(designerUser.getUserId())))
 				.thenThrow(new RuntimeException("Test exception: createComponentCategory"));
@@ -377,7 +377,7 @@ public class ElementServletTest extends JerseyTest {
 		parametersMap.put(COMPONENT_TYPE, componentType);
 
 		String formatEndpoint = "/v1/category/{componentType}";
-		String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+		String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
 		Either<CategoryDefinition, ResponseFormat> createComponentCategoryEither = Either.left(new CategoryDefinition());
 
@@ -403,7 +403,7 @@ public class ElementServletTest extends JerseyTest {
 		parametersMap.put(CATEGORY_UNIQUE_ID, categoryUniqueId);
 
 		String formatEndpoint = "/v1/category/{componentType}/{categoryUniqueId}";
-		String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+		String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
 		ResponseFormat notFoundResponseFormat = new ResponseFormat(HttpStatus.SC_NOT_FOUND);
 		Either<CategoryDefinition, ResponseFormat> deleteComponentCategoryEither = Either.right(notFoundResponseFormat);
@@ -430,7 +430,7 @@ public class ElementServletTest extends JerseyTest {
 		parametersMap.put(CATEGORY_UNIQUE_ID, categoryUniqueId);
 
 		String formatEndpoint = "/v1/category/{componentType}/{categoryUniqueId}";
-		String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+		String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
 		when(elementBusinessLogic.deleteCategory(categoryUniqueId, componentType, designerUser.getUserId()))
 				.thenThrow(new RuntimeException("Test exception: deleteComponentCategory"));
@@ -454,7 +454,7 @@ public class ElementServletTest extends JerseyTest {
 		parametersMap.put(CATEGORY_UNIQUE_ID, categoryUniqueId);
 
 		String formatEndpoint = "/v1/category/{componentType}/{categoryUniqueId}";
-		String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+		String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
 		Either<CategoryDefinition, ResponseFormat> deleteComponentCategoryEither = Either.left(new CategoryDefinition());
 		when(elementBusinessLogic.deleteCategory(categoryUniqueId, componentType, designerUser.getUserId()))
@@ -479,7 +479,7 @@ public class ElementServletTest extends JerseyTest {
 		parametersMap.put(CATEGORY_ID, categoryId);
 
 		String formatEndpoint = "/v1/category/{componentType}/{categoryId}/subCategory";
-		String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+		String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
 		Either<SubCategoryDefinition, ResponseFormat> createComponentSubCategoryEither = Either.right(conflictResponseFormat);
 
@@ -505,7 +505,7 @@ public class ElementServletTest extends JerseyTest {
 		parametersMap.put(CATEGORY_ID, categoryId);
 
 		String formatEndpoint = "/v1/category/{componentType}/{categoryId}/subCategory";
-		String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+		String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
 		when(elementBusinessLogic.createSubCategory(any(), eq(componentType), eq(categoryId), eq(designerUser.getUserId())))
 				.thenThrow(new RuntimeException("Test exception: createComponentSubCategory"));
@@ -529,7 +529,7 @@ public class ElementServletTest extends JerseyTest {
 		parametersMap.put(CATEGORY_ID, categoryId);
 
 		String formatEndpoint = "/v1/category/{componentType}/{categoryId}/subCategory";
-		String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+		String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
 		Either<SubCategoryDefinition, ResponseFormat> createComponentSubCategoryEither = Either.left(new SubCategoryDefinition());
 
@@ -557,7 +557,7 @@ public class ElementServletTest extends JerseyTest {
 		parametersMap.put(SUB_CATEGORY_UNIQUE_ID, subCategoryUniqueId);
 
 		String formatEndpoint = "/v1/category/{componentType}/{categoryUniqueId}/subCategory/{subCategoryUniqueId}";
-		String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+		String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
 		Either<SubCategoryDefinition, ResponseFormat> deleteComponentSubCategoryEither = Either.right(conflictResponseFormat);
 
@@ -585,7 +585,7 @@ public class ElementServletTest extends JerseyTest {
 		parametersMap.put(SUB_CATEGORY_UNIQUE_ID, subCategoryUniqueId);
 
 		String formatEndpoint = "/v1/category/{componentType}/{categoryUniqueId}/subCategory/{subCategoryUniqueId}";
-		String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+		String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
 		when(elementBusinessLogic.deleteSubCategory(eq(subCategoryUniqueId), eq(componentType), eq(designerUser.getUserId())))
 				.thenThrow(new RuntimeException("Test exception: deleteComponentSubCategory"));
@@ -611,7 +611,7 @@ public class ElementServletTest extends JerseyTest {
 		parametersMap.put(SUB_CATEGORY_UNIQUE_ID, subCategoryUniqueId);
 
 		String formatEndpoint = "/v1/category/{componentType}/{categoryUniqueId}/subCategory/{subCategoryUniqueId}";
-		String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+		String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
 		Either<SubCategoryDefinition, ResponseFormat> deleteComponentSubCategoryEither = Either.left(new SubCategoryDefinition());
 
@@ -639,7 +639,7 @@ public class ElementServletTest extends JerseyTest {
 		parametersMap.put(SUB_CATEGORY_ID, subCategoryId);
 
 		String formatEndpoint = "/v1/category/{componentType}/{categoryId}/subCategory/{subCategoryId}/grouping";
-		String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+		String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
 		Either<GroupingDefinition, ResponseFormat> createComponentGroupingEither = Either.right(conflictResponseFormat);
 
@@ -667,7 +667,7 @@ public class ElementServletTest extends JerseyTest {
 		parametersMap.put(SUB_CATEGORY_ID, subCategoryId);
 
 		String formatEndpoint = "/v1/category/{componentType}/{categoryId}/subCategory/{subCategoryId}/grouping";
-		String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+		String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
 
 		when(elementBusinessLogic.createGrouping(any(), eq(componentType), eq(categoryId), eq(subCategoryId), eq(designerUser.getUserId())))
@@ -694,7 +694,7 @@ public class ElementServletTest extends JerseyTest {
 		parametersMap.put(SUB_CATEGORY_ID, subCategoryId);
 
 		String formatEndpoint = "/v1/category/{componentType}/{categoryId}/subCategory/{subCategoryId}/grouping";
-		String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+		String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
 		Either<GroupingDefinition, ResponseFormat> createComponentGroupingEither = Either.left(new GroupingDefinition());
 
@@ -724,7 +724,7 @@ public class ElementServletTest extends JerseyTest {
 		parametersMap.put(GROUPING_UNIQUE_ID, groupingUniqueId);
 
 		String formatEndpoint = "/v1/category/{componentType}/{categoryUniqueId}/subCategory/{subCategoryUniqueId}/grouping/{groupingUniqueId}";
-		String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+		String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
 		Either<GroupingDefinition, ResponseFormat> deleteComponentGroupingEither = Either.right(conflictResponseFormat);
 
@@ -754,7 +754,7 @@ public class ElementServletTest extends JerseyTest {
 		parametersMap.put(GROUPING_UNIQUE_ID, groupingUniqueId);
 
 		String formatEndpoint = "/v1/category/{componentType}/{categoryUniqueId}/subCategory/{subCategoryUniqueId}/grouping/{groupingUniqueId}";
-		String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+		String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
 		when(elementBusinessLogic.deleteGrouping(eq(groupingUniqueId), eq(componentType), eq(designerUser.getUserId())))
 				.thenThrow(new RuntimeException("Test exception: deleteComponentGrouping"));
@@ -782,7 +782,7 @@ public class ElementServletTest extends JerseyTest {
 		parametersMap.put(GROUPING_UNIQUE_ID, groupingUniqueId);
 
 		String formatEndpoint = "/v1/category/{componentType}/{categoryUniqueId}/subCategory/{subCategoryUniqueId}/grouping/{groupingUniqueId}";
-		String path = StrSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
+		String path = StringSubstitutor.replace(formatEndpoint, parametersMap, "{","}");
 
 		Either<GroupingDefinition, ResponseFormat> deleteComponentGroupingEither = Either.left(new GroupingDefinition());
 
