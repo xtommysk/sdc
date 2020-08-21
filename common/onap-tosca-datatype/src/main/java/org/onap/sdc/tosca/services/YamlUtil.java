@@ -17,8 +17,15 @@
 package org.onap.sdc.tosca.services;
 
 import java.beans.IntrospectionException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.AbstractMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Map;
+import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.DumperOptions;
@@ -33,15 +40,6 @@ import org.yaml.snakeyaml.nodes.NodeTuple;
 import org.yaml.snakeyaml.nodes.Tag;
 import org.yaml.snakeyaml.parser.ParserException;
 import org.yaml.snakeyaml.representer.Representer;
-
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.AbstractMap;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.Set;
 
 /**
  * The type Yaml util.
@@ -245,13 +243,13 @@ public class YamlUtil {
     //Unsorted properties
     @Override
     protected Set<Property> createPropertySet(Class<? extends Object> type, BeanAccess bnAccess)
-            throws IntrospectionException {
+        throws IntrospectionException {
       return new LinkedHashSet<>(getPropertiesMap(type,
           BeanAccess.FIELD).values());
     }
 
     @Override
-    public Property getProperty(Class<?> type, String name)  throws IntrospectionException{
+    public Property getProperty(Class<?> type, String name) throws IntrospectionException {
       String updatedName = name;
       if (DEFAULT.equals(updatedName)) {
         updatedName = DEFAULT_STR;

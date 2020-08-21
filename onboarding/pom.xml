@@ -80,7 +80,7 @@
     <!--datastax.cassandra.version>3.8.0</datastax.cassandra.version-->
     <easymock.version>3.4</easymock.version>
     <!--groovy.version>${groovy.version}</groovy.version-->
-    <groovy.minimal.version>1.5.8</groovy.minimal.version>
+    <!--groovy.minimal.version>1.5.8</groovy.minimal.version-->
     <!--fop.version>2.2</fop.version-->
     <freemarker.version>2.3.26-incubating</freemarker.version>
     <!--hibernate.validator.version>5.3.6.Final</hibernate.validator.version-->
@@ -177,11 +177,11 @@
         <artifactId>slf4j-api</artifactId>
         <version>${slf4j-api.version}</version>
       </dependency>
-      <!--<dependency>
+      <dependency>
         <groupId>org.codehaus.groovy</groupId>
-        <artifactId>groovy-all-minimal</artifactId>
-        <version>${groovy.minimal.version}</version>
-      </dependency>-->
+        <artifactId>groovy-all</artifactId>
+        <version>${groovy.version}</version>
+      </dependency>
       <dependency>
         <groupId>org.codehaus.janino</groupId>
         <artifactId>janino</artifactId>

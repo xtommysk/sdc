@@ -87,12 +87,12 @@
       <artifactId>openecomp-tosca-lib</artifactId>
       <version>${project.version}</version>
     </dependency>
-    <!--<dependency>
+    <!<dependency>
       <groupId>org.codehaus.groovy</groupId>
-      <artifactId>groovy-all-minimal</artifactId>
-      <version>${groovy.minimal.version}</version>
+      <artifactId>groovy-all</artifactId>
+      <version>${groovy.version}</version>
       <scope>test</scope>
-    </dependency>-->
+    </dependency>
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>

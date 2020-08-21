@@ -29,6 +29,8 @@ import static org.openecomp.sdc.be.tosca.InterfacesOperationsConverter.addInterf
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import fj.data.Either;
+
+import java.beans.IntrospectionException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -1669,7 +1671,7 @@ public class ToscaExportHandler {
     private static class UnsortedPropertyUtils extends PropertyUtils {
 
         @Override
-        protected Set<Property> createPropertySet(Class type, BeanAccess bAccess) {
+        protected Set<Property> createPropertySet(Class type, BeanAccess bAccess) throws IntrospectionException {
             Collection<Property> fields = getPropertiesMap(type, BeanAccess.FIELD).values();
             return new LinkedHashSet<>(fields);
         }

@@ -118,15 +118,10 @@
       <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.glassfish.jersey.core</groupId>
-      <artifactId>jersey-server</artifactId>
-      <version>${jersey-bom.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
       <groupId>org.glassfish.jersey.media</groupId>
       <artifactId>jersey-media-multipart</artifactId>
       <version>${jersey-bom.version}</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 
