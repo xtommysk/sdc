@@ -21,7 +21,7 @@ package org.openecomp.sdc.vendorsoftwareproduct.types;
 
 import static com.google.code.beanmatchers.BeanMatchers.hasValidGettersAndSettersExcluding;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 import org.junit.Test;
 import org.openecomp.sdc.datatypes.error.ErrorLevel;

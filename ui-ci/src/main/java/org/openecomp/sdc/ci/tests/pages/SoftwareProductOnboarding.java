@@ -26,7 +26,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.openecomp.sdc.ci.tests.pages.SoftwareProductOnboarding.XpathSelector.ATTACHMENT_VIEW;
 import static org.openecomp.sdc.ci.tests.pages.SoftwareProductOnboarding.XpathSelector.BNT_SUBMIT;
 import static org.openecomp.sdc.ci.tests.pages.SoftwareProductOnboarding.XpathSelector.FILE_INPUT;

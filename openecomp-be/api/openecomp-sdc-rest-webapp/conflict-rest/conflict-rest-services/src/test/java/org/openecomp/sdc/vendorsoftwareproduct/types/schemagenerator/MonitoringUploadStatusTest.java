@@ -23,7 +23,7 @@ package org.openecomp.sdc.vendorsoftwareproduct.types.schemagenerator;
 import org.junit.Test;
 
 import static com.google.code.beanmatchers.BeanMatchers.hasValidGettersAndSetters;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class MonitoringUploadStatusTest {
     @Test

@@ -101,7 +101,7 @@
     <dependency>
       <groupId>org.glassfish.jersey.media</groupId>
       <artifactId>jersey-media-multipart</artifactId>
-      <version>${jersey-bom.version}</version>
+      <version>${jersey.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>

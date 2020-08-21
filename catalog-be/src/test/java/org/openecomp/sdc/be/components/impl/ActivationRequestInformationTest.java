@@ -24,7 +24,7 @@ import org.openecomp.sdc.be.model.Service;
 
 import static com.google.code.beanmatchers.BeanMatchers.hasValidGettersAndSetters;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ActivationRequestInformationTest {
 

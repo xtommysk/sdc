@@ -32,7 +32,7 @@ import org.openecomp.sdc.be.model.operations.impl.UserAdminOperation;
 
 import java.math.BigInteger;
 
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ForwardPathMigrationTest {
 

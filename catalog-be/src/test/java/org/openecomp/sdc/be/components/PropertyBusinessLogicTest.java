@@ -75,12 +75,11 @@ import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyObject;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
@@ -385,7 +384,7 @@ public class PropertyBusinessLogicTest extends BaseBusinessLogicMock {
         resource.setLastUpdaterUserId("USR01");
 
         when(toscaOperationFacade.getToscaElement("RES01")).thenReturn(Either.left(resource));
-        when(toscaOperationFacade.deletePropertyOfComponent(anyObject(), anyString())).thenReturn(StorageOperationStatus.OK);
+        when(toscaOperationFacade.deletePropertyOfComponent(any(), anyString())).thenReturn(StorageOperationStatus.OK);
         when(toscaOperationFacade.getParentComponents(anyString())).thenReturn(Either.left(new ArrayList<>()));
 
         assertTrue(propertyBusinessLogic.deletePropertyFromComponent("RES01", "PROP","USR01").isRight());

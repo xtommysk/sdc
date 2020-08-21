@@ -20,7 +20,7 @@
 package org.openecomp.sdc.heat.datatypes.structure;
 
 import static com.google.code.beanmatchers.BeanMatchers.hasValidGettersAndSetters;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 import org.junit.Test;
 

@@ -26,7 +26,7 @@ import org.junit.Test;
 import org.onap.sdc.tosca.services.ToscaExtensionYamlUtil;
 
 import static com.google.code.beanmatchers.BeanMatchers.hasValidGettersAndSettersExcluding;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 
 public class NodeTypeTest {

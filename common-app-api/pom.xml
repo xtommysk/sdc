@@ -41,7 +41,7 @@
     <dependency>
       <groupId>org.glassfish.jersey.containers</groupId>
       <artifactId>jersey-container-servlet</artifactId>
-      <version>${jersey-bom.version}</version>
+      <version>${jersey.version}</version>
       <scope>provided</scope>
     </dependency>
 
@@ -101,7 +101,7 @@
     <dependency>
       <groupId>org.glassfish.jersey.media</groupId>
       <artifactId>jersey-media-json-jackson</artifactId>
-      <version>${jersey-bom.version}</version>
+      <version>${jersey.version}</version>
       <scope>provided</scope>
       <exclusions>
         <exclusion>

@@ -171,35 +171,35 @@
     <dependency>
       <groupId>org.glassfish.jersey.core</groupId>
       <artifactId>jersey-server</artifactId>
-      <version>${jersey-bom.version}</version>
+      <version>${jersey.version}</version>
       <scope>compile</scope>
     </dependency>
 
     <dependency>
       <groupId>org.glassfish.jersey.containers</groupId>
       <artifactId>jersey-container-servlet-core</artifactId>
-      <version>${jersey-bom.version}</version>
+      <version>${jersey.version}</version>
       <scope>compile</scope>
     </dependency>
 
     <dependency>
       <groupId>org.glassfish.jersey.containers</groupId>
       <artifactId>jersey-container-jetty-http</artifactId>
-      <version>${jersey-bom.version}</version>
+      <version>${jersey.version}</version>
       <scope>compile</scope>
     </dependency>
 
     <dependency>
       <groupId>org.glassfish.jersey.media</groupId>
       <artifactId>jersey-media-moxy</artifactId>
-      <version>${jersey-bom.version}</version>
+      <version>${jersey.version}</version>
       <scope>compile</scope>
     </dependency>
 
     <dependency>
       <groupId>org.glassfish.jersey.media</groupId>
       <artifactId>jersey-media-multipart</artifactId>
-      <version>${jersey-bom.version}</version>
+      <version>${jersey.version}</version>
       <scope>compile</scope>
     </dependency>
 
