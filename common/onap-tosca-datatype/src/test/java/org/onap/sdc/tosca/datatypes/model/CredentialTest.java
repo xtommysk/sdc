@@ -23,7 +23,7 @@ package org.onap.sdc.tosca.datatypes.model;
 import org.junit.Test;
 
 import static com.google.code.beanmatchers.BeanMatchers.hasValidGettersAndSetters;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertThat;
 
 public class CredentialTest {
     @Test

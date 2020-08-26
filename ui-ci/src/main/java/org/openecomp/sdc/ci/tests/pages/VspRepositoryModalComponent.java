@@ -33,7 +33,7 @@ import java.util.List;
 import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNot.not;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertThat;
 import static org.openecomp.sdc.ci.tests.pages.VspRepositoryModalComponent.XpathSelector.IMPORT_VSP_BTN;
 import static org.openecomp.sdc.ci.tests.pages.VspRepositoryModalComponent.XpathSelector.MODAL_DIV;
 import static org.openecomp.sdc.ci.tests.pages.VspRepositoryModalComponent.XpathSelector.RESULTS_CONTAINER_DIV;

@@ -32,7 +32,7 @@ import org.openecomp.sdc.be.dao.jsongraph.JanusGraphDao;
 
 import java.math.BigInteger;
 
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertThat;
 
 @RunWith(MockitoJUnitRunner.class)
 public class SdcArchiveMigrationTest {

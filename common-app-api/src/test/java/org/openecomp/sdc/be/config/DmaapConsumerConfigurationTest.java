@@ -22,7 +22,7 @@ package org.openecomp.sdc.be.config;
 
 import com.google.code.beanmatchers.BeanMatchers;
 import org.junit.Test;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertThat;
 
 public class DmaapConsumerConfigurationTest {
 

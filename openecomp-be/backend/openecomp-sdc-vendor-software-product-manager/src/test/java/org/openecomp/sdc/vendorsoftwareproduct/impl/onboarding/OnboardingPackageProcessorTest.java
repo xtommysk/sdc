@@ -23,7 +23,7 @@ import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 import static org.openecomp.sdc.common.errors.Messages.PACKAGE_EMPTY_ERROR;
 import static org.openecomp.sdc.common.errors.Messages.PACKAGE_INVALID_EXTENSION;

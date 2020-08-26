@@ -28,7 +28,7 @@ import org.openecomp.sdc.be.dao.jsongraph.GraphVertex;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.openecomp.sdc.asdctool.impl.validator.report.ReportFile.makeTxtFile;
 

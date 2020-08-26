@@ -32,7 +32,7 @@ import org.slf4j.LoggerFactory;
 
 import static org.hamcrest.Matchers.equalToIgnoringCase;
 import static org.hamcrest.core.Is.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertThat;
 import static org.openecomp.sdc.ci.tests.pages.ResourceCreatePage.XpathSelector.FORM_LIFE_CYCLE_STATE;
 
 /**
