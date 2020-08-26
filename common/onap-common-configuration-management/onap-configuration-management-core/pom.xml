@@ -31,7 +31,6 @@
 
   <properties>
     <corn.cps.version>1.1.7</corn.cps.version>
-    <commons.conf2-jackson.version>0.6.1</commons.conf2-jackson.version>
   </properties>
 
 
@@ -56,12 +55,12 @@
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-configuration2</artifactId>
-      <version>${commons-configuration}</version>
+      <version>${commons.configuration.version}</version>
     </dependency>
     <dependency>
       <groupId>commons-beanutils</groupId>
       <artifactId>commons-beanutils</artifactId>
-      <version>${commons-beanutils}</version>
+      <version>${commons.beanutils.version}</version>
     </dependency>
     <dependency>
       <groupId>commons-logging</groupId>

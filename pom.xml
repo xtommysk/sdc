@@ -43,7 +43,6 @@ Modifications copyright (c) 2018-2019 Nokia
     <tosca.datatype.version>${project.version}</tosca.datatype.version>
 
     <!-- 3rd parties versions -->
-    <!--bean-matcher.version>0.11</bean-matcher.version-->
     <guava.version>29.0-jre</guava.version>
     <janusgraph.version>0.3.1</janusgraph.version>
     <spring.version>4.3.18.RELEASE</spring.version>
@@ -54,8 +53,9 @@ Modifications copyright (c) 2018-2019 Nokia
     <ecomp.version>2.6.0</ecomp.version>
     <cadi.version>2.1.8</cadi.version>
     <lombok.version>1.18.12</lombok.version>
-    <commons-beanutils>1.9.3</commons-beanutils>
-    <commons-configuration>2.3</commons-configuration>
+    <commons.beanutils.version>1.9.3</commons.beanutils.version>
+    <commons.configuration.version>2.3</commons.configuration.version>
+    <commons.conf2-jackson.version>0.6.1</commons.conf2-jackson.version>
     <commons.cli.version>1.4</commons.cli.version>
     <commons.collections.version>4.1</commons.collections.version>
     <commons.crypto.version>1.0.0</commons.crypto.version>
@@ -89,8 +89,6 @@ Modifications copyright (c) 2018-2019 Nokia
 
     <!-- JSON and YAML Parsing -->
     <jackson.version>2.10.0</jackson.version>
-    <!--jackson-annotations.version>${jackson.version}</jackson-annotations.version-->
-    <!-->1.9.13</jackson.mapper.version-->
     <clearspring.version>2.1.1</clearspring.version>
     <skipYamlJsonValidator>false</skipYamlJsonValidator>
     <json.version>20131018</json.version>
@@ -113,7 +111,6 @@ Modifications copyright (c) 2018-2019 Nokia
 
     <!-- aspects -->
     <jcabi.version>0.20.1</jcabi.version>
-    <!--aspectj.version>1.8.4</-aspectj.version-->
     <aspectj.version>1.8.10</aspectj.version>
     <jcabi.maven.plugin.version>0.13.2</jcabi.maven.plugin.version>
 
@@ -163,9 +160,9 @@ Modifications copyright (c) 2018-2019 Nokia
     <sonar.projectBaseDir>${project.basedir}</sonar.projectBaseDir>
     <sonar.coverage.exclusions>pom.xml,src/test</sonar.coverage.exclusions>
     <!--cassandra -->
-    <cassandra.unit.version>4.3.1.0</cassandra.unit.version>
-    <cassandra.driver.version>3.8.0</cassandra.driver.version>
     <cassandra.all.version>3.11.3</cassandra.all.version>
+    <cassandra.driver.version>3.8.0</cassandra.driver.version>
+    <cassandra.unit.version>4.3.1.0</cassandra.unit.version>
     <!-- maven central (Nexus) -->
     <nexus.id.release>nexus</nexus.id.release>
     <nexus.id.snapshot>nexus</nexus.id.snapshot>
