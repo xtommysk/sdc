@@ -24,7 +24,7 @@ package org.openecomp.sdc.be.info;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+-Ddetail=true
 
 public class ServiceVersionInfoTest {
 
