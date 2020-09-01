@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <name>openecomp-sdc-logging-lib</name>
     <artifactId>openecomp-sdc-logging-lib</artifactId>
     <packaging>pom</packaging>
+    <name>openecomp-sdc-logging-lib</name>
 
     <parent>
         <groupId>org.openecomp.sdc</groupId>

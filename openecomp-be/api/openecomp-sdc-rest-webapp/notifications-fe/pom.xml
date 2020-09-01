@@ -5,8 +5,8 @@
 
     <groupId>org.openecomp.sdc.onboarding</groupId>
     <artifactId>notifications-fe</artifactId>
-    <name>notification-war</name>
     <packaging>war</packaging>
+    <name>notification-war</name>
 
     <parent>
         <groupId>org.openecomp.sdc</groupId>
@@ -161,4 +161,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

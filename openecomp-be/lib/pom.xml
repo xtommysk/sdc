@@ -1,10 +1,11 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <name>openecomp-sdc-lib</name>
     <artifactId>openecomp-sdc-lib</artifactId>
     <packaging>pom</packaging>
+    <name>openecomp-sdc-lib</name>
 
     <parent>
         <artifactId>openecomp-sdc</artifactId>
@@ -36,4 +37,5 @@
         <module>openecomp-item-permissions-lib</module>
         <module>openecomp-conflict-lib</module>
     </modules>
+
 </project>

@@ -18,4 +18,5 @@
         <module>openecomp-sdc-healing-core</module>
         <module>openecomp-sdc-healing-impl</module>
     </modules>
+
 </project>

@@ -47,6 +47,16 @@ limitations under the License.
         <it.shared.volume>/tmp/sdc-integration-tests</it.shared.volume>
         <it.docker.version>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}-STAGING-latest
         </it.docker.version>
+
+        <aventstack.extentreports.version>3.0.6</aventstack.extentreports.version>
+        <jackson.mapper.asl.version>1.9.2</jackson.mapper.asl.version>
+        <selenium.version>2.53.1</selenium.version>
+        <commons.net.version>3.3</commons.net.version>
+        <xml.apis.version>1.4.01</xml.apis.version>
+        <lightbody.bmp-core.version>2.1.4</lightbody.bmp-core.version>
+        <markusbernhardt.proxy-vole.version>1.0.2</markusbernhardt.proxy-vole.version>
+        <paulhammant.ngwebdriver.version>0.9.7</paulhammant.ngwebdriver.version>
+        <inject.guice.version>4.1.0</inject.guice.version>
     </properties>
 
     <dependencies>
@@ -95,7 +105,7 @@ limitations under the License.
         <dependency>
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
-            <version>3.0.6</version>
+            <version>${aventstack.extentreports.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -155,7 +165,7 @@ limitations under the License.
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-mapper-asl</artifactId>
-            <version>1.9.2</version>
+            <version>${jackson.mapper.asl.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -175,8 +185,8 @@ limitations under the License.
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
             <scope>test</scope>
-            <version>2.53.1</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.eclipse.jetty</groupId>
@@ -193,7 +203,7 @@ limitations under the License.
             <!-- To use the legacy, Jetty-based implementation, change the artifactId
               to browsermob-core -->
             <artifactId>browsermob-core</artifactId>
-            <version>2.1.4</version>
+            <version>${lightbody.bmp-core.version}</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>
@@ -205,13 +215,13 @@ limitations under the License.
         <dependency>
             <groupId>com.paulhammant</groupId>
             <artifactId>ngwebdriver</artifactId>
-            <version>0.9.7</version>
+            <version>${paulhammant.ngwebdriver.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.github.markusbernhardt</groupId>
             <artifactId>proxy-vole</artifactId>
-            <version>1.0.2</version>
+            <version>${markusbernhardt.proxy-vole.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -223,17 +233,15 @@ limitations under the License.
         <dependency>
             <groupId>commons-net</groupId>
             <artifactId>commons-net</artifactId>
-            <version>3.3</version>
+            <version>${commons.net.version}</version>
             <scope>test</scope>
         </dependency>
-
         <!--<dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-server</artifactId>
-            <version>2.53.1</version>
+            <version>${selenium.version}</version>
             <scope>test</scope>
         </dependency>-->
-
     </dependencies>
 
     <build>
@@ -693,5 +701,6 @@ limitations under the License.
             </plugin>
         </plugins>
     </build>
+
 </project>
 

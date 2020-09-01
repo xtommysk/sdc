@@ -196,49 +196,41 @@ Modifications copyright (c) 2018-2019 Nokia
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.glassfish.jersey.ext</groupId>
                 <artifactId>jersey-bean-validation</artifactId>
                 <version>${jersey.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.glassfish.hk2.external</groupId>
                 <artifactId>asm-all-repackaged</artifactId>
                 <version>${asm-library.repackaged.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.assertj</groupId>
                 <artifactId>assertj-core</artifactId>
                 <version>${assertj.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.jmockit</groupId>
                 <artifactId>jmockit</artifactId>
                 <version>${jmockit.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>com.github.tomakehurst</groupId>
                 <artifactId>wiremock-standalone</artifactId>
                 <version>${wire-mock.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>io.cucumber</groupId>
                 <artifactId>cucumber-java</artifactId>
                 <version>${cucumber.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>io.cucumber</groupId>
                 <artifactId>cucumber-junit</artifactId>
                 <version>${cucumber.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
@@ -285,7 +277,6 @@ Modifications copyright (c) 2018-2019 Nokia
             <version>${junitJupiter.version}</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
@@ -330,7 +321,6 @@ Modifications copyright (c) 2018-2019 Nokia
                         <tarLongFileMode>posix</tarLongFileMode>
                     </configuration>
                 </plugin>
-
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>exec-maven-plugin</artifactId>
@@ -443,7 +433,6 @@ Modifications copyright (c) 2018-2019 Nokia
                     </execution>
                 </executions>
             </plugin>
-
             <!-- Java Code Coverage -->
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -473,7 +462,6 @@ Modifications copyright (c) 2018-2019 Nokia
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
@@ -486,7 +474,6 @@ Modifications copyright (c) 2018-2019 Nokia
                     </dependency>
                 </dependencies>
             </plugin>
-
             <!-- Set the deployment repositories properties. -->
             <plugin>
                 <groupId>org.codehaus.gmaven</groupId>
@@ -669,7 +656,6 @@ Modifications copyright (c) 2018-2019 Nokia
                 <module>integration-tests</module>
             </modules>
         </profile>
-
     </profiles>
 
     <repositories>
@@ -708,5 +694,6 @@ Modifications copyright (c) 2018-2019 Nokia
             <url>dav:${nexus.proxy}${sitePath}</url>
         </site>
     </distributionManagement>
+
 </project>
 

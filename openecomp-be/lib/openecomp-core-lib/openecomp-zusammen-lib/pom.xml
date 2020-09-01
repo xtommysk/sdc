@@ -3,9 +3,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <name>openecomp-zusammen-lib</name>
     <artifactId>openecomp-zusammen-lib</artifactId>
     <packaging>pom</packaging>
+    <name>openecomp-zusammen-lib</name>
+
     <parent>
         <groupId>org.openecomp.sdc.core</groupId>
         <artifactId>openecomp-core-lib</artifactId>
@@ -16,6 +17,5 @@
         <module>openecomp-zusammen-api</module>
         <module>openecomp-zusammen-core</module>
     </modules>
-
 
 </project>

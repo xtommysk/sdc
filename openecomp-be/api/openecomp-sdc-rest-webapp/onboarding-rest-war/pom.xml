@@ -5,8 +5,8 @@
 
     <groupId>org.openecomp.sdc.onboarding</groupId>
     <artifactId>onboarding-be</artifactId>
-    <name>onboarding-rest-war</name>
     <packaging>war</packaging>
+    <name>onboarding-rest-war</name>
 
     <parent>
         <groupId>org.openecomp.sdc</groupId>
@@ -206,7 +206,6 @@
         </dependency>
     </dependencies>
 
-
     <build>
         <plugins>
             <plugin>
@@ -263,7 +262,6 @@
                 </executions>
             </plugin>
         </plugins>
-
     </build>
 
 </project>

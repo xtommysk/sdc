@@ -25,6 +25,5 @@
         <module>openecomp-sdc-item-permissions-manager</module>
         <module>openecomp-sdc-security-util</module>
     </modules>
-
     
 </project>

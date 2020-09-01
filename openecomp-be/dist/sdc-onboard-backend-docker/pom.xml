@@ -1,4 +1,5 @@
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -13,7 +14,6 @@
         <artifactId>openecomp-sdc-docker-dist</artifactId>
         <version>1.7.0-SNAPSHOT</version>
     </parent>
-
 
     <properties>
         <docker.image.name>sdc-onboard-backend</docker.image.name>
@@ -51,7 +51,6 @@
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <artifactId>maven-resources-plugin</artifactId>
                 <version>3.0.2</version>
@@ -102,7 +101,6 @@
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
@@ -116,7 +114,6 @@
                         </pull>
                     </authConfig>
                     <images>
-
                         <!-- Build backend image -->
                         <image>
                             <name>${docker.namespace}/${docker.image.name}</name>
@@ -144,7 +141,6 @@
                             <image>${docker.namespace}/${docker.image.name}</image>
                         </configuration>
                     </execution>
-
                     <execution>
                         <id>generate-images</id>
                         <phase>install</phase>
@@ -152,7 +148,6 @@
                             <goal>build</goal>
                         </goals>
                     </execution>
-
                     <execution>
                         <id>push-images</id>
                         <phase>deploy</phase>
@@ -167,5 +162,6 @@
             </plugin>
         </plugins>
     </build>
+
 </project>
 
