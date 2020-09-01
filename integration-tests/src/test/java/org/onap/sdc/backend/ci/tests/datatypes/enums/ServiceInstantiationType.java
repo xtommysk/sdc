@@ -18,48 +18,18 @@
  * ============LICENSE_END=========================================================
  */
 
-package org.openecomp.sdc.be.components.merge.instance;
+package org.onap.sdc.backend.ci.tests.datatypes.enums;
 
-import org.junit.Test;
-import org.openecomp.sdc.be.model.RequirementCapabilityRelDef;
+public enum ServiceInstantiationType {
+	A_LA_CARTE("A-la-carte"), MACRO("Macro");
+	
+	private String value;
 
-public class RelationMergeInfoTest {
-
-	private RelationMergeInfo createTestSubject() {
-		return new RelationMergeInfo("", "", "", new RequirementCapabilityRelDef());
+	public String getValue() {
+		return value;
 	}
 
-	@Test
-	public void testGetCapReqType() throws Exception {
-		RelationMergeInfo testSubject;
-		String result;
-
-		// default test
-		testSubject = createTestSubject();
-		result = testSubject.getCapReqType();
+	private ServiceInstantiationType(String value) {
+		this.value = value;
 	}
-
-
-	@Test
-	public void testGetRelDef() throws Exception {
-		RelationMergeInfo testSubject;
-		RequirementCapabilityRelDef result;
-
-		// default test
-		testSubject = createTestSubject();
-		result = testSubject.getRelDef();
-	}
-
-
-
-	@Test
-	public void testGetCapReqName() throws Exception {
-		RelationMergeInfo testSubject;
-		String result;
-
-		// default test
-		testSubject = createTestSubject();
-		result = testSubject.getCapReqName();
-	}
-
 }
