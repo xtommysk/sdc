@@ -13,12 +13,18 @@
     <relativePath>../../pom.xml</relativePath>
   </parent>
 
+  <properties>
+    <spock.core.version>1.1-groovy-2.4</spock.core.version>
+    <dmaapClient.version>0.2.16</dmaapClient.version>
+    <args4j.version>2.33</args4j.version>
+  </properties>
+
   <dependencies>
     <!--spock testing-->
     <dependency>
       <groupId>org.spockframework</groupId>
       <artifactId>spock-core</artifactId>
-      <version>1.1-groovy-2.4</version>
+      <version>${spock.core.version}</version>
       <scope>test</scope>
     </dependency>
     <!--groovy-->
@@ -36,7 +42,7 @@
     <dependency>
       <groupId>com.att.nsa</groupId>
       <artifactId>dmaapClient</artifactId>
-      <version>0.2.16</version>
+      <version>${dmaapClient.version}</version>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -46,7 +52,7 @@
     <dependency>
       <groupId>args4j</groupId>
       <artifactId>args4j</artifactId>
-      <version>2.33</version>
+      <version>${args4j.version}</version>
     </dependency>
     <dependency>
       <groupId>com.google.guava</groupId>

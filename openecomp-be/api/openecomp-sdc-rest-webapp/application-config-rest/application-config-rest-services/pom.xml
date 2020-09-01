@@ -12,10 +12,6 @@
     <version>1.7.0-SNAPSHOT</version>
   </parent>
 
-  <properties>
-    <!--jersey-common.version>2.22.2</jersey-common.version-->
-  </properties>
-
   <dependencies>
 
     <dependency>

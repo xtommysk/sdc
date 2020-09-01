@@ -16,7 +16,6 @@
   <properties>
     <sonar.skip>true</sonar.skip>
     <jacoco.skip>true</jacoco.skip>
-    <!--aspectj.version>1.8.10</aspectj.version-->
     <selenium.version>2.53.1</selenium.version>
     <commons.net.version>3.3</commons.net.version>
     <xml.apis.version>1.4.01</xml.apis.version>

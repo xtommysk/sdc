@@ -13,8 +13,6 @@
   </parent>
 
   <properties>
-    <!--java-hamcrest.version>2.0.0.0</java-hamcrest.version-->
-    <!--swagger.version>2.1.1</swagger.version-->
     <swagger-ui.version>3.25.0</swagger-ui.version>
     <maven-dependency-plugin.version>3.1.1</maven-dependency-plugin.version>
     <replacer.plugin.version>1.5.3</replacer.plugin.version>

@@ -13,10 +13,6 @@
 
   <artifactId>openecomp-conflict-api</artifactId>
 
-  <!--properties>
-    <java-hamcrest.version>2.0.0.0</java-hamcrest.version>
-  </properties-->
-
   <dependencies>
     <dependency>
       <groupId>org.openecomp.sdc.core</groupId>
