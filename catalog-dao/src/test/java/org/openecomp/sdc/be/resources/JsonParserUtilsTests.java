@@ -50,7 +50,7 @@ public class JsonParserUtilsTests {
 		Map<String, ListCapabilityDataDefinition> actual = JsonParserUtils.toMap(json,
 				ListCapabilityDataDefinition.class);
 		Map<String, ListCapabilityDataDefinition> expected = buildMap();
-		assertThat(actual).isEqualToComparingFieldByFieldRecursively(expected);
+		assertThat(actual).usingRecursiveComparison().isEqualTo(expected);
 	}
 
 	@Test

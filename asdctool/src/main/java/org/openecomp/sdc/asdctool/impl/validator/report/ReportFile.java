@@ -21,7 +21,7 @@
 package org.openecomp.sdc.asdctool.impl.validator.report;
 
 import java.util.Set;
-import org.apache.commons.text.StrBuilder;
+import org.apache.commons.text.TextStringBuilder;
 import org.openecomp.sdc.be.dao.jsongraph.GraphVertex;
 
 /**
@@ -82,7 +82,7 @@ public class ReportFile {
             Set<String> failedTasksNames,
             Set<String> successTasksNames
         ) {
-            StrBuilder sb = new StrBuilder();
+            TextStringBuilder sb = new TextStringBuilder();
             sb.appendln("-----------------------ValidatorExecuter " + validatorName
                 + " Validation Summary-----------------------");
             sb.appendln("Failed tasks: " + failedTasksNames);
@@ -92,7 +92,7 @@ public class ReportFile {
         }
 
         public void reportEndOfToolRun(Report report) {
-            StrBuilder sb = new StrBuilder();
+            TextStringBuilder sb = new TextStringBuilder();
             sb.appendln("-----------------------------------Validator Tool Summary-----------------------------------");
             report.forEachFailure((taskName, failedVertices) ->
                 sb.append("Task: ")

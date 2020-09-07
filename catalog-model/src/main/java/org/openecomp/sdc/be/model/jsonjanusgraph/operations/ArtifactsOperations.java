@@ -22,9 +22,9 @@ package org.openecomp.sdc.be.model.jsonjanusgraph.operations;
 
 import fj.data.Either;
 import org.apache.commons.collections4.MapUtils;
-import org.apache.commons.lang3.text.StrBuilder;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.apache.commons.lang3.tuple.Triple;
+import org.apache.commons.text.TextStringBuilder;
 import org.apache.tinkerpop.gremlin.structure.Direction;
 import org.openecomp.sdc.be.config.BeEcompErrorManager;
 import org.openecomp.sdc.be.dao.janusgraph.JanusGraphOperationStatus;
@@ -823,7 +823,7 @@ public class ArtifactsOperations extends BaseOperation {
     }
 
     public String sortAndCalculateChecksumForHeatParameters(List<HeatParameterDataDefinition> heatParameters) {
-        StrBuilder sb = new StrBuilder();
+        TextStringBuilder sb = new TextStringBuilder();
         heatParameters.stream()
                 .sorted(Comparator.comparingInt(HeatParameterDataDefinition::hashCode))
                 .map(HeatParameterDataDefinition::hashCode)
