@@ -21,7 +21,7 @@
 package org.onap.sdc.backend.ci.tests.execute.groups;
 
 import fj.data.Either;
-import org.apache.commons.collections.MapUtils;
+import org.apache.commons.collections4.MapUtils;
 import org.junit.Rule;
 import org.junit.rules.TestName;
 import org.onap.sdc.backend.ci.tests.datatypes.enums.ServiceCategoriesEnum;
