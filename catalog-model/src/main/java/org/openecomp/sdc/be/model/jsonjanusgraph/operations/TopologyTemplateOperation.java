@@ -39,6 +39,9 @@ import org.openecomp.sdc.be.dao.jsongraph.GraphVertex;
 import org.openecomp.sdc.be.dao.jsongraph.types.EdgeLabelEnum;
 import org.openecomp.sdc.be.dao.jsongraph.types.JsonParseFlagEnum;
 import org.openecomp.sdc.be.dao.jsongraph.types.VertexTypeEnum;
+import org.openecomp.sdc.be.datatypes.elements.MapAttributesDataDefinition;
+import org.openecomp.sdc.be.datatypes.elements.MapCapabilityProperty;
+import org.openecomp.sdc.be.datatypes.elements.MapListCapabilityDataDefinition;
 import org.openecomp.sdc.be.datatypes.elements.AdditionalInfoParameterDataDefinition;
 import org.openecomp.sdc.be.datatypes.elements.ArtifactDataDefinition;
 import org.openecomp.sdc.be.datatypes.elements.CINodeFilterDataDefinition;
@@ -537,7 +540,7 @@ public class TopologyTemplateOperation extends ToscaElementOperation {
     }
 
     private StorageOperationStatus associateInstAttributesToComponent(GraphVertex nodeTypeVertex, TopologyTemplate topologyTemplate) {
-        Map<String, MapPropertiesDataDefinition> instAttr = topologyTemplate.getInstAttributes();
+        Map<String, MapAttributesDataDefinition> instAttr = topologyTemplate.getInstAttributes();
         return associateInstAttributeToComponent(nodeTypeVertex, instAttr);
     }
 
@@ -551,7 +554,7 @@ public class TopologyTemplateOperation extends ToscaElementOperation {
         return StorageOperationStatus.OK;
     }
 
-    public StorageOperationStatus associateInstAttributeToComponent(GraphVertex nodeTypeVertex, Map<String, MapPropertiesDataDefinition> instAttr) {
+    public StorageOperationStatus associateInstAttributeToComponent(GraphVertex nodeTypeVertex, Map<String, MapAttributesDataDefinition> instAttr) {
         if (instAttr != null && !instAttr.isEmpty()) {
             Either<GraphVertex, StorageOperationStatus> assosiateElementToData = associateElementToData(nodeTypeVertex, VertexTypeEnum.INST_ATTRIBUTES, EdgeLabelEnum.INST_ATTRIBUTES, instAttr);
             if (assosiateElementToData.isRight()) {
@@ -1180,6 +1183,8 @@ public class TopologyTemplateOperation extends ToscaElementOperation {
         category.setUniqueId(categoryV.getUniqueId());
         category.setNormalizedName((String) metadataProperties.get(GraphPropertyEnum.NORMALIZED_NAME));
         category.setName((String) metadataProperties.get(GraphPropertyEnum.NAME));
+        final Boolean useServiceSubstitutionForNestedServices = (Boolean)metadataProperties.get(GraphPropertyEnum.USE_SUBSTITUTION_FOR_NESTED_SERVICES);
+        category.setUseServiceSubstitutionForNestedServices(useServiceSubstitutionForNestedServices == null ? false : useServiceSubstitutionForNestedServices);
 
         Type listTypeCat = new TypeToken<List<String>>() {}.getType();
         List<String> iconsfromJsonCat = getGson().fromJson((String) metadataProperties.get(GraphPropertyEnum.ICONS.getProperty()), listTypeCat);

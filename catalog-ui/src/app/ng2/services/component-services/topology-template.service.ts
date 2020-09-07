@@ -63,6 +63,7 @@ import { ConstraintObject } from "../../components/logic/service-dependencies/se
 import { ComponentMetadata } from "../../../models/component-metadata";
 import { PolicyInstance } from "../../../models/graph/zones/policy-instance";
 import { PropertyBEModel } from "../../../models/properties-inputs/property-be-model";
+import {map} from "rxjs/operators";
 
 /* we need to use this service from now, we will remove component.service when we finish remove the angular1.
  The service is duplicated since we can not use downgrades service with NGXS*/
@@ -388,16 +389,16 @@ export class TopologyTemplateService {
         return this.getComponentDataByFieldsName(componentType, componentId, [COMPONENT_FIELDS.COMPONENT_INSTANCES_PROPERTIES]);
     }
 
-    createServiceFilterConstraints(componentMetaDataId: string, componentInstanceId: string, constraint: ConstraintObject, componentType: string): Observable<any> {
-        return this.http.post<any>(this.baseUrl + this.getServerTypeUrl(componentType) + componentMetaDataId + '/resourceInstances/' + componentInstanceId + '/nodeFilter', constraint);
+    createServiceFilterConstraints(componentMetaDataId: string, componentInstanceId: string, constraint: ConstraintObject, componentType: string, constraintType: string): Observable<any> {
+        return this.http.post<any>(this.baseUrl + this.getServerTypeUrl(componentType) + componentMetaDataId + '/resourceInstances/' + componentInstanceId + '/nodeFilter/' + constraintType, constraint);
     }
 
-    updateServiceFilterConstraints(componentMetaDataId: string, componentInstanceId: string, constraints: ConstraintObject[], componentType: string):Observable<any>{
-        return this.http.put<any>(this.baseUrl + this.getServerTypeUrl(componentType) + componentMetaDataId + '/resourceInstances/' + componentInstanceId + '/nodeFilter', constraints)
+    updateServiceFilterConstraints(componentMetaDataId: string, componentInstanceId: string, constraints: ConstraintObject[], componentType: string, constraintType: string):Observable<any>{
+        return this.http.put<any>(this.baseUrl + this.getServerTypeUrl(componentType) + componentMetaDataId + '/resourceInstances/' + componentInstanceId + '/nodeFilter/' + constraintType, constraints)
     }
 
-    deleteServiceFilterConstraints(componentMetaDataId: string, componentInstanceId: string, constraintIndex: number, componentType: string): Observable<any>{
-        return this.http.delete<any>(this.baseUrl + this.getServerTypeUrl(componentType) + componentMetaDataId + '/resourceInstances/' + componentInstanceId + '/nodeFilter/' + constraintIndex)
+    deleteServiceFilterConstraints(componentMetaDataId: string, componentInstanceId: string, constraintIndex: number, componentType: string, constraintType: string): Observable<any>{
+        return this.http.delete<any>(this.baseUrl + this.getServerTypeUrl(componentType) + componentMetaDataId + '/resourceInstances/' + componentInstanceId + '/nodeFilter/' + constraintType + "/" + constraintIndex)
     }
 
     createSubstitutionFilterConstraints(componentMetaDataId: string, componentInstanceId: string, constraint: ConstraintObject, componentType: string): Observable<any> {
@@ -465,6 +466,7 @@ export class TopologyTemplateService {
         switch (componentType) {
             case ComponentType.SERVICE:
             case ComponentType.SERVICE_PROXY:
+            case ComponentType.SERVICE_SUBSTITUTION:
                 return ServerTypeUrl.SERVICES;
             default:
                 return ServerTypeUrl.RESOURCES;
@@ -528,4 +530,10 @@ export class TopologyTemplateService {
     deleteRequirement(component: Component, reqId: string): Observable<Requirement> {
         return this.http.delete<Requirement>(this.baseUrl + component.getTypeUrl() + component.uniqueId + '/requirements/' + reqId);
     }
+
+    getDirectiveList(): Observable<string[]> {
+        return this.http.get<ListDirectiveResponse>(this.baseUrl + "directives")
+        .pipe(map(response => response.directives));
+    }
+
 }

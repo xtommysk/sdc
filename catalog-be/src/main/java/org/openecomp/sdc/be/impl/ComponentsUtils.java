@@ -125,8 +125,6 @@ import org.openecomp.sdc.exception.ResponseFormat;
 import org.slf4j.MarkerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import static org.apache.commons.collections4.CollectionUtils.isNotEmpty;
-
 @org.springframework.stereotype.Component("componentUtils")
 public class ComponentsUtils {
 
@@ -291,7 +289,7 @@ public class ComponentsUtils {
 
         ResponseFormat responseFormat = null;
         if (actionStatus == ActionStatus.MISSING_CAPABILITY_TYPE) {
-            if (obj instanceof List && isNotEmpty((List) obj)) {
+            if (obj instanceof List && org.apache.commons.collections4.CollectionUtils.isNotEmpty((List) obj)) {
                 List list = (List) obj;
                 if (list.get(0) instanceof RequirementDefinition) {
                     responseFormat = getResponseFormat(ActionStatus.MISSING_CAPABILITY_TYPE, ((RequirementDefinition) list

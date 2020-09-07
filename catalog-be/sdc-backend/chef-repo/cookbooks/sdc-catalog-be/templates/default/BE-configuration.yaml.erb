@@ -597,6 +597,17 @@ artifacts:
     acceptedTypes:
       - csar
       - zip
+  - type: ETSI_PACKAGE
+    categories:
+      - DEPLOYMENT
+    componentTypes:
+      - RESOURCE
+    resourceTypes:
+      - VF
+      - PNF
+    acceptedTypes:
+      - csar
+      - zip
   - type: HEAT_ENV
     categories:
       - DEPLOYMENT
@@ -1008,6 +1019,10 @@ genericAssetNodeTypes:
   CR : org.openecomp.resource.abstract.nodes.CR
   PNF: org.openecomp.resource.abstract.nodes.PNF
   Service: org.openecomp.resource.abstract.nodes.service
+  ETSI Network Service: tosca.nodes.nfv.NS
+
+serviceNodeTypes:
+  ETSI Network Service: tosca.nodes.nfv.NS
 
 workloadContext: Production
 
@@ -1235,3 +1250,10 @@ cadiFilterParams:
 # This configuration entry lists all node type names prefix that shall be allowed on SDC.
 definedResourceNamespace:
   - org.openecomp.resource.
+
+# This configuration entry lists all Directives values that shall be allowed on SDC.
+directives:
+  - select
+  - selectable
+  - substitute
+  - substitutable

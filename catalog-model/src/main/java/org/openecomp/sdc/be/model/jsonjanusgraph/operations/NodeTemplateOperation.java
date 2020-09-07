@@ -63,6 +63,7 @@ import org.openecomp.sdc.be.datatypes.elements.InterfaceDataDefinition;
 import org.openecomp.sdc.be.datatypes.elements.ListCapabilityDataDefinition;
 import org.openecomp.sdc.be.datatypes.elements.ListRequirementDataDefinition;
 import org.openecomp.sdc.be.datatypes.elements.MapArtifactDataDefinition;
+import org.openecomp.sdc.be.datatypes.elements.MapAttributesDataDefinition;
 import org.openecomp.sdc.be.datatypes.elements.MapCapabilityProperty;
 import org.openecomp.sdc.be.datatypes.elements.MapDataDefinition;
 import org.openecomp.sdc.be.datatypes.elements.MapGroupsDataDefinition;
@@ -78,23 +79,7 @@ import org.openecomp.sdc.be.datatypes.enums.JsonPresentationFields;
 import org.openecomp.sdc.be.datatypes.enums.OriginTypeEnum;
 import org.openecomp.sdc.be.datatypes.enums.ResourceTypeEnum;
 import org.openecomp.sdc.be.datatypes.tosca.ToscaDataDefinition;
-import org.openecomp.sdc.be.model.ArtifactDefinition;
-import org.openecomp.sdc.be.model.CapabilityDefinition;
-import org.openecomp.sdc.be.model.CapabilityRequirementRelationship;
-import org.openecomp.sdc.be.model.Component;
-import org.openecomp.sdc.be.model.ComponentInstance;
-import org.openecomp.sdc.be.model.ComponentInstanceInput;
-import org.openecomp.sdc.be.model.ComponentInstanceProperty;
-import org.openecomp.sdc.be.model.ComponentParametersView;
-import org.openecomp.sdc.be.model.GroupDefinition;
-import org.openecomp.sdc.be.model.GroupInstance;
-import org.openecomp.sdc.be.model.InputDefinition;
-import org.openecomp.sdc.be.model.PropertyDefinition;
-import org.openecomp.sdc.be.model.RelationshipImpl;
-import org.openecomp.sdc.be.model.RelationshipInfo;
-import org.openecomp.sdc.be.model.RequirementCapabilityRelDef;
-import org.openecomp.sdc.be.model.RequirementDefinition;
-import org.openecomp.sdc.be.model.User;
+import org.openecomp.sdc.be.model.*;
 import org.openecomp.sdc.be.model.jsonjanusgraph.datamodel.NodeType;
 import org.openecomp.sdc.be.model.jsonjanusgraph.datamodel.TopologyTemplate;
 import org.openecomp.sdc.be.model.jsonjanusgraph.datamodel.ToscaElement;
@@ -180,7 +165,7 @@ public class NodeTemplateOperation extends BaseOperation {
                 }
                 result = Either.right(status);
             }
-            if (componentInstance.getOriginType() == OriginTypeEnum.ServiceProxy) {
+            if (componentInstance.getOriginType() == OriginTypeEnum.ServiceProxy || componentInstance.getOriginType() == OriginTypeEnum.ServiceSubstitution) {
                 TopologyTemplate updatedContainer = addComponentInstanceRes.left().value();
                 result = addCapAndReqToProxyServiceInstance(updatedContainer, componentInstance, componentInstanceData);
                 if(result.isRight()) {
@@ -307,7 +292,7 @@ public class NodeTemplateOperation extends BaseOperation {
 
         Either<String, StorageOperationStatus> result = null;
         String instanceName = componentInstance.getName();
-        if (StringUtils.isEmpty(instanceName) || instanceName.equalsIgnoreCase(originToscaElement.getName()) || componentInstance.getOriginType() == OriginTypeEnum.ServiceProxy) {
+        if (StringUtils.isEmpty(instanceName) || instanceName.equalsIgnoreCase(originToscaElement.getName()) || componentInstance.getOriginType() == OriginTypeEnum.ServiceProxy || componentInstance.getOriginType() == OriginTypeEnum.ServiceSubstitution) {
             instanceName = buildComponentInstanceName(instanceNumberSuffix, instanceName);
         } else if (!isUniqueInstanceName(container, componentInstance.getName())) {
             CommonUtility.addRecordToLog(log, LogLevelEnum.DEBUG, "Failed to create component instance with name {} on component container {}. The instance with the same name already exists. ", componentInstance.getName(), container.getName());
@@ -872,8 +857,10 @@ public class NodeTemplateOperation extends BaseOperation {
             calculatedRequirements.forEach((key, value) -> {
                 Map<String, ListRequirementDataDefinition> mapByType =
                         value.getMapToscaDataDefinition();
-                mapByType.forEach((key1, value1) -> value1.getListToscaDataDefinition().forEach(req -> {
+                mapByType.forEach((key1, value1) -> value1.getListToscaDataDefinition().stream()
+                        .filter(RequirementDataDefinition::isExternal).forEach(req -> {
                     req.addToPath(componentInstance.getUniqueId());
+                    req.setExternal(false);
                     allCalculatedReq.add(key1, req);
                 }));
             });
@@ -942,6 +929,72 @@ public class NodeTemplateOperation extends BaseOperation {
         }
         return StorageOperationStatus.OK;
     }
+    
+    public StorageOperationStatus updateComponentInstanceRequirement(String componentId, String componentInstanceUniqueId, RequirementDataDefinition requirementDataDefinition) {
+        Either<GraphVertex, JanusGraphOperationStatus> containerVEither = janusGraphDao
+                .getVertexById(componentId, JsonParseFlagEnum.ParseAll);
+        if (containerVEither.isRight()) {
+            JanusGraphOperationStatus error = containerVEither.right().value();
+            CommonUtility.addRecordToLog(log, LogLevelEnum.DEBUG, FAILED_TO_FETCH_CONTAINER_VERTEX_ERROR, componentId, error);
+            return StorageOperationStatus.GENERAL_ERROR;
+        }
+        GraphVertex containerV = containerVEither.left().value();
+        return updateComponentInstanceRequirement(componentId, componentInstanceUniqueId, requirementDataDefinition, containerV);
+    }
+
+    private StorageOperationStatus updateComponentInstanceRequirement(String componentId, String componentInstanceUniqueId, RequirementDataDefinition requirementDataDefinition, GraphVertex containerV) {
+        Either<Pair<GraphVertex, Map<String, MapListRequirementDataDefinition>>, StorageOperationStatus> existingReqs = getCalculatedRequirements(componentId);
+        if (existingReqs.isRight()) {
+            return existingReqs.right().value();
+        }
+        MapListRequirementDataDefinition componentInstanceRequirementsMap = existingReqs.left().value().getRight().get(componentInstanceUniqueId);
+        if (componentInstanceRequirementsMap == null) {
+            return StorageOperationStatus.NOT_FOUND;
+        }
+        ListRequirementDataDefinition listRequirementDataDefinition = componentInstanceRequirementsMap.getMapToscaDataDefinition().get(requirementDataDefinition.getCapability());
+            
+        listRequirementDataDefinition.getListToscaDataDefinition().stream()
+                .filter(e -> requirementDataDefinition.getOwnerId().equals(e.getOwnerId()) && requirementDataDefinition.getName().equals(e.getName()))
+                .forEach(r -> r.setExternal(requirementDataDefinition.isExternal()));
+
+        return updateCalculatedReqOnGraph(componentId, containerV, existingReqs);
+    }
+    
+    private Either<Pair<GraphVertex, Map<String, MapListRequirementDataDefinition>>, StorageOperationStatus> getCalculatedRequirements(String componentId) {
+        Either<Pair<GraphVertex, Map<String, MapListRequirementDataDefinition>>, StorageOperationStatus> result = null;
+        Either<GraphVertex, JanusGraphOperationStatus> containerVEither = janusGraphDao
+            .getVertexById(componentId, JsonParseFlagEnum.ParseAll);
+        if (containerVEither.isRight()) {
+            JanusGraphOperationStatus error = containerVEither.right().value();
+            CommonUtility.addRecordToLog(log, LogLevelEnum.DEBUG, FAILED_TO_FETCH_CONTAINER_VERTEX_ERROR, componentId, error);
+            result = Either.right(DaoStatusConverter.convertJanusGraphStatusToStorageStatus(error));
+        }
+        if (result == null) {
+            GraphVertex containerV = containerVEither.left().value();
+            result = fetchContainerCalculatedRequirement(containerV, EdgeLabelEnum.CALCULATED_REQUIREMENTS);
+        }
+        return result;
+    }
+    
+    private StorageOperationStatus updateCalculatedReqOnGraph(String componentId, GraphVertex containerV, Either<Pair<GraphVertex, Map<String, MapListRequirementDataDefinition>>, StorageOperationStatus> reqResult
+            ) {
+        containerV.setJsonMetadataField(JsonPresentationFields.LAST_UPDATE_DATE, System.currentTimeMillis());
+        Either<GraphVertex, JanusGraphOperationStatus> updateElement = janusGraphDao.updateVertex(containerV);
+        if (updateElement.isRight()) {
+            CommonUtility.addRecordToLog(log, LogLevelEnum.DEBUG, "Failed to update topology template {} with new relations error {}. ", componentId, updateElement.right().value());
+            return DaoStatusConverter.convertJanusGraphStatusToStorageStatus(updateElement.right().value());
+        }
+
+        CommonUtility.addRecordToLog(log, LogLevelEnum.DEBUG, "Update calculated requirement for container {}", containerV.getUniqueId());
+        Either<GraphVertex, JanusGraphOperationStatus> status = updateOrCopyOnUpdate(reqResult.left().value().getLeft(), containerV, EdgeLabelEnum.CALCULATED_REQUIREMENTS);
+        if (status.isRight()) {
+            JanusGraphOperationStatus error = status.right().value();
+            CommonUtility.addRecordToLog(log, LogLevelEnum.DEBUG, "Failed to update calculated requiremnt for container {} error {}", containerV.getUniqueId(), error);
+            return DaoStatusConverter.convertJanusGraphStatusToStorageStatus(error);
+        }
+        return StorageOperationStatus.OK;
+    }
+    
     private StorageOperationStatus addComponentInstanceToscaDataToNodeTypeContainer(NodeType originNodeType,
             ComponentInstanceDataDefinition componentInstance, GraphVertex updatedContainerVertex) {
 
@@ -958,8 +1011,8 @@ public class NodeTemplateOperation extends BaseOperation {
         }
 
         if(MapUtils.isNotEmpty(originNodeType.getAttributes())){
-            MapPropertiesDataDefinition instAttributes =
-                    new MapPropertiesDataDefinition(originNodeType.getAttributes());
+            MapAttributesDataDefinition instAttributes =
+                    new MapAttributesDataDefinition(originNodeType.getAttributes());
             status = addToscaDataDeepElementsBlockToToscaElement(updatedContainerVertex, EdgeLabelEnum.INST_ATTRIBUTES,
                     VertexTypeEnum.INST_ATTRIBUTES, instAttributes, componentInstance.getUniqueId());
             if (status != StorageOperationStatus.OK) {
@@ -2197,16 +2250,16 @@ public class NodeTemplateOperation extends BaseOperation {
         return updateToscaDataDeepElementsOfToscaElement(containerComponent.getUniqueId(), EdgeLabelEnum.INST_PROPERTIES, VertexTypeEnum.INST_PROPERTIES, properties, pathKeys, JsonPresentationFields.NAME);
     }
 
-    public StorageOperationStatus updateComponentInstanceAttribute(Component containerComponent, String componentInstanceId, ComponentInstanceProperty property){
+    public StorageOperationStatus updateComponentInstanceAttribute(Component containerComponent, String componentInstanceId, ComponentInstanceAttribute property){
         List<String> pathKeys = new ArrayList<>();
         pathKeys.add(componentInstanceId);
         return updateToscaDataDeepElementOfToscaElement(containerComponent.getUniqueId(), EdgeLabelEnum.INST_ATTRIBUTES, VertexTypeEnum.INST_ATTRIBUTES, property, pathKeys, JsonPresentationFields.NAME);
     }
 
-    public StorageOperationStatus addComponentInstanceAttribute(Component containerComponent, String componentInstanceId, ComponentInstanceProperty property){
+    public StorageOperationStatus addComponentInstanceAttribute(Component containerComponent, String componentInstanceId, ComponentInstanceAttribute attribute){
         List<String> pathKeys = new ArrayList<>();
         pathKeys.add(componentInstanceId);
-        return addToscaDataDeepElementToToscaElement(containerComponent.getUniqueId(), EdgeLabelEnum.INST_ATTRIBUTES, VertexTypeEnum.INST_ATTRIBUTES, property, pathKeys, JsonPresentationFields.NAME);
+        return addToscaDataDeepElementToToscaElement(containerComponent.getUniqueId(), EdgeLabelEnum.INST_ATTRIBUTES, VertexTypeEnum.INST_ATTRIBUTES, attribute, pathKeys, JsonPresentationFields.NAME);
     }
 
     public StorageOperationStatus updateComponentInstanceInput(Component containerComponent, String componentInstanceId, ComponentInstanceInput property) {

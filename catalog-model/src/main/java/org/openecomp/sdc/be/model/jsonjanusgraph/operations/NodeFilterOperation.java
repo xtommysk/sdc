@@ -33,8 +33,10 @@ import org.openecomp.sdc.be.dao.jsongraph.types.JsonParseFlagEnum;
 import org.openecomp.sdc.be.dao.jsongraph.types.VertexTypeEnum;
 import org.openecomp.sdc.be.datatypes.elements.CINodeFilterDataDefinition;
 import org.openecomp.sdc.be.datatypes.elements.ListDataDefinition;
+import org.openecomp.sdc.be.datatypes.elements.RequirementNodeFilterCapabilityDataDefinition;
 import org.openecomp.sdc.be.datatypes.elements.RequirementNodeFilterPropertyDataDefinition;
 import org.openecomp.sdc.be.datatypes.enums.JsonPresentationFields;
+import org.openecomp.sdc.be.datatypes.enums.NodeFilterConstraintType;
 import org.openecomp.sdc.be.model.Component;
 import org.openecomp.sdc.be.model.operations.api.StorageOperationStatus;
 import org.openecomp.sdc.be.model.operations.impl.DaoStatusConverter;
@@ -91,11 +93,20 @@ public class NodeFilterOperation extends BaseOperation {
     public Either<CINodeFilterDataDefinition, StorageOperationStatus> deleteConstraint(final String serviceId,
                                                                                        final String componentInstanceId,
                                                                                        final CINodeFilterDataDefinition nodeFilterDataDefinition,
-                                                                                       final int propertyIndex) {
-        ListDataDefinition<RequirementNodeFilterPropertyDataDefinition> properties =
+                                                                                       final int propertyIndex,
+                                                                                       final NodeFilterConstraintType nodeFilterConstraintType) {
+
+        if (NodeFilterConstraintType.PROPERTIES.equals(nodeFilterConstraintType)) {
+            final ListDataDefinition<RequirementNodeFilterPropertyDataDefinition> properties =
                 nodeFilterDataDefinition.getProperties();
-        properties.getListToscaDataDefinition().remove(propertyIndex);
-        nodeFilterDataDefinition.setProperties(properties);
+            properties.getListToscaDataDefinition().remove(propertyIndex);
+            nodeFilterDataDefinition.setProperties(properties);
+        } else if (NodeFilterConstraintType.CAPABILITIES.equals(nodeFilterConstraintType)) {
+            final ListDataDefinition<RequirementNodeFilterCapabilityDataDefinition> capabilities =
+                nodeFilterDataDefinition.getCapabilities();
+            capabilities.getListToscaDataDefinition().remove(propertyIndex);
+            nodeFilterDataDefinition.setCapabilities(capabilities);
+        }
         return addOrUpdateNodeFilter(true, serviceId, componentInstanceId, nodeFilterDataDefinition);
     }
 
@@ -115,17 +126,46 @@ public class NodeFilterOperation extends BaseOperation {
         return addOrUpdateNodeFilter(true, componentId, componentInstanceId, nodeFilterDataDefinition);
     }
 
+    public Either<CINodeFilterDataDefinition, StorageOperationStatus> addNewCapabilities(
+        final String componentId, final String componentInstanceId,
+        final CINodeFilterDataDefinition nodeFilterDataDefinition,
+        final RequirementNodeFilterCapabilityDataDefinition requirementNodeFilterCapabilityDataDefinition) {
+
+        ListDataDefinition<RequirementNodeFilterCapabilityDataDefinition> capabilities =
+            nodeFilterDataDefinition.getCapabilities();
+        if(capabilities == null) {
+            capabilities = new ListDataDefinition<>();
+            nodeFilterDataDefinition.setCapabilities(capabilities);
+        }
+        capabilities.getListToscaDataDefinition().add(requirementNodeFilterCapabilityDataDefinition);
+        nodeFilterDataDefinition.setCapabilities(capabilities);
+        return addOrUpdateNodeFilter(true, componentId, componentInstanceId, nodeFilterDataDefinition);
+    }
+
     public Either<CINodeFilterDataDefinition, StorageOperationStatus> updateProperties(
-        final String serviceId, final String componentInstanceId,
+        final String componentId, final String componentInstanceId,
         final CINodeFilterDataDefinition nodeFilterDataDefinition,
         final List<RequirementNodeFilterPropertyDataDefinition> requirementNodeFilterPropertyDataDefinition) {
 
-        ListDataDefinition<RequirementNodeFilterPropertyDataDefinition> properties =
+        final ListDataDefinition<RequirementNodeFilterPropertyDataDefinition> properties =
                 nodeFilterDataDefinition.getProperties();
         properties.getListToscaDataDefinition().clear();
         properties.getListToscaDataDefinition().addAll(requirementNodeFilterPropertyDataDefinition);
         nodeFilterDataDefinition.setProperties(properties);
-        return addOrUpdateNodeFilter(true, serviceId, componentInstanceId, nodeFilterDataDefinition);
+        return addOrUpdateNodeFilter(true, componentId, componentInstanceId, nodeFilterDataDefinition);
+    }
+
+    public Either<CINodeFilterDataDefinition, StorageOperationStatus> updateCapabilities(
+        final String componentId, final String componentInstanceId,
+        final CINodeFilterDataDefinition nodeFilterDataDefinition,
+        final List<RequirementNodeFilterCapabilityDataDefinition> requirementNodeFilterCapabilityDataDefinitions) {
+
+        final ListDataDefinition<RequirementNodeFilterCapabilityDataDefinition> capabilities =
+            nodeFilterDataDefinition.getCapabilities();
+        capabilities.getListToscaDataDefinition().clear();
+        capabilities.getListToscaDataDefinition().addAll(requirementNodeFilterCapabilityDataDefinitions);
+        nodeFilterDataDefinition.setCapabilities(capabilities);
+        return addOrUpdateNodeFilter(true, componentId, componentInstanceId, nodeFilterDataDefinition);
     }
 
     public Either<CINodeFilterDataDefinition, StorageOperationStatus> updateNodeFilter(final String serviceId,
@@ -174,7 +214,6 @@ public class NodeFilterOperation extends BaseOperation {
                 VertexTypeEnum.NODE_FILTER_TEMPLATE, toscaDataList, JsonPresentationFields.UNIQUE_ID);
         }
     }
-
 }
 
 

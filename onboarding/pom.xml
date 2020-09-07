@@ -25,7 +25,7 @@
     <parent>
         <groupId>org.openecomp.sdc</groupId>
         <artifactId>sdc-main</artifactId>
-        <version>1.7.0-SNAPSHOT</version>
+        <version>1.7.1-SNAPSHOT</version>
     </parent>
 
     <modules>
@@ -38,7 +38,6 @@
         <maven.test.redirectTestOutputToFile>true</maven.test.redirectTestOutputToFile>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.targer>1.8</maven.compiler.targer>
-        <jacoco.skip>true</jacoco.skip>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- Maven plugin versions -->
@@ -74,6 +73,7 @@
         <javax.el-api.version>3.0.1-b04</javax.el-api.version>
         <javax.inject.version>1</javax.inject.version>
         <jcommander.version>1.58</jcommander.version>
+        <mockito.all.version>1.10.19</mockito.all.version>
         <org.everit.json.schema.version>1.5.1</org.everit.json.schema.version>
         <woodstox.version>4.4.1</woodstox.version>
         <zusammen.version>1.0.1</zusammen.version>
@@ -279,10 +279,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven-surefire-plugin.version}</version>
                 <configuration>
-                    <forkCount>${fork.count}</forkCount>
-                    <forkMode>${fork.mode}</forkMode>
                     <printSummary>false</printSummary>
                     <additionalClasspathElements>
                         <additionalClasspathElement>${project.basedir}/src/test/resources
@@ -293,7 +290,6 @@
                         </logback.configurationFile>
                         <config.location>${project.basedir}/configuration</config.location>
                     </systemPropertyVariables>
-                    <useSystemClassLoader>${useSystemClassLoader}</useSystemClassLoader>
                 </configuration>
             </plugin>
             <plugin>

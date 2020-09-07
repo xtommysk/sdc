@@ -60,6 +60,8 @@ public enum JsonPresentationFields {
     DERIVED_FROM_GENERIC_VERSION("derivedFromGenericVersion", null),
     SERVICE_FUNCTION("serviceFunction", null),
 
+    DATA_TYPES("data_types", GraphPropertyEnum.DATA_TYPES),
+
     ////Inputs
     ANNOTATIONS("annotations", null),
 
@@ -232,6 +234,8 @@ public enum JsonPresentationFields {
 	IO_MANDATORY("mandatory", null),
 	IO_TYPE("type", null),
 	IO_PROPERTY("property", null),
+	IO_WORKFLOW_NAME("workflowName", null),
+	IO_WORKFLOW_VERSION("workflowVersion", null),
 	IO_WORKFLOW_ID("workflowId", null),
 	IO_WORKFLOW_VERSION_ID("workflowVersionId", null),
     IO_WORKFLOW_ASSOCIATION_TYPE("workflowAssociationType", null),
@@ -247,6 +251,8 @@ public enum JsonPresentationFields {
     GET_PROPERTY("get_property", null),
     GET_INPUT("get_input", null),
     GET_OPERATION_OUTPUT("get_operation_output", null),
+
+    ATTRIBUTES("attributes", null),
 
     TOSCA_DEFINITIONS_VERSION("tosca_definitions_version", null);
 

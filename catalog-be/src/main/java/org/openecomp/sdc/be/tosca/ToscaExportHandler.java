@@ -25,11 +25,9 @@ import static org.apache.commons.collections4.CollectionUtils.isNotEmpty;
 import static org.apache.commons.collections4.MapUtils.isNotEmpty;
 import static org.openecomp.sdc.be.components.utils.PropertiesUtils.resolvePropertyValueFromInput;
 import static org.openecomp.sdc.be.tosca.InterfacesOperationsConverter.addInterfaceTypeElement;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import fj.data.Either;
-
 import java.beans.IntrospectionException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -55,6 +53,7 @@ import org.openecomp.sdc.be.components.impl.exceptions.SdcResourceNotFoundExcept
 import org.openecomp.sdc.be.config.ConfigurationManager;
 import org.openecomp.sdc.be.dao.janusgraph.JanusGraphOperationStatus;
 import org.openecomp.sdc.be.datatypes.components.ResourceMetadataDataDefinition;
+import org.openecomp.sdc.be.datatypes.elements.AttributeDataDefinition;
 import org.openecomp.sdc.be.datatypes.elements.CINodeFilterDataDefinition;
 import org.openecomp.sdc.be.datatypes.elements.InterfaceDataDefinition;
 import org.openecomp.sdc.be.datatypes.elements.ListDataDefinition;
@@ -283,6 +282,8 @@ public class ToscaExportHandler {
             toscaNode.setNode_types(nodeTypesMap);
         }
 
+        createServiceSubstitutionNodeTypes(componentCache, component, toscaNode);
+
         Either<Map<String, Object>, ToscaError> proxyInterfaceTypesEither = createProxyInterfaceTypes(component);
         if (proxyInterfaceTypesEither.isRight()) {
             log.debug("Failed to populate service proxy local interface types in tosca, error {}",
@@ -366,6 +367,9 @@ public class ToscaExportHandler {
         }
         substitutionMapping = requirements.left().value();
 
+        final Optional<Map<String, ToscaProperty>> proxyInputProperties = getProxyNodeTypeInputProperties(component, dataTypes);
+        proxyInputProperties.ifPresent(substitutionMapping::setProperties);
+
         topologyTemplate.setSubstitution_mappings(substitutionMapping);
 
         toscaNode.setTopology_template(topologyTemplate);
@@ -428,8 +432,11 @@ public class ToscaExportHandler {
                 toscaMetadata.setSourceModelInvariant(componentInstance.getSourceModelInvariant());
                 toscaMetadata.setSourceModelUuid(componentInstance.getSourceModelUuid());
                 toscaMetadata.setSourceModelName(componentInstance.getSourceModelName());
-                toscaMetadata.setName(
-                    componentInstance.getSourceModelName() + " " + OriginTypeEnum.ServiceProxy.getDisplayValue());
+                if (componentInstance.getOriginType() == OriginTypeEnum.ServiceProxy) {
+                	toscaMetadata.setName(componentInstance.getSourceModelName() + " " + OriginTypeEnum.ServiceProxy.getDisplayValue());
+                } else if (componentInstance.getOriginType() == OriginTypeEnum.ServiceSubstitution) {
+                    toscaMetadata.setName(componentInstance.getSourceModelName() + " " + OriginTypeEnum.ServiceSubstitution.getDisplayValue());
+                }
                 toscaMetadata.setDescription(componentInstance.getDescription());
             }
 
@@ -438,7 +445,7 @@ public class ToscaExportHandler {
             case RESOURCE:
                 Resource resource = (Resource) component;
 
-                if (isInstance && componentInstance.getOriginType() == OriginTypeEnum.ServiceProxy) {
+            if (isInstance && (componentInstance.getOriginType() == OriginTypeEnum.ServiceProxy || componentInstance.getOriginType() == OriginTypeEnum.ServiceSubstitution)) {
                     toscaMetadata.setType(componentInstance.getOriginType().getDisplayValue());
                 } else {
                     toscaMetadata.setType(resource.getResourceType().name());
@@ -546,7 +553,7 @@ public class ToscaExportHandler {
                                    final ComponentInstance componentInstance,
                                    final Component fetchedComponent) {
         componentCache.put(fetchedComponent.getUniqueId(), fetchedComponent);
-        if (componentInstance.getOriginType() == OriginTypeEnum.ServiceProxy) {
+        if (componentInstance.getOriginType() == OriginTypeEnum.ServiceProxy || componentInstance.getOriginType() == OriginTypeEnum.ServiceSubstitution) {
             final Either<Component, StorageOperationStatus> sourceService = toscaOperationFacade
                 .getToscaFullElement(componentInstance.getSourceModelUid());
             if (sourceService.isRight() && (log.isDebugEnabled())) {
@@ -1061,6 +1068,14 @@ public class ToscaExportHandler {
                 : NATIVE_ROOT;
             toscaNodeType.setDerived_from(derivedFrom);
         }
+        if (component instanceof Resource) {
+            final List<AttributeDataDefinition> attributes = ((Resource) component).getAttributes();
+            if (CollectionUtils.isNotEmpty(attributes)) {
+                final Map<String, AttributeDataDefinition> attributeDataDefinitionMap
+                    = attributes.stream().collect(Collectors.toMap(AttributeDataDefinition::getName, a -> a));
+                toscaNodeType.setAttributes(attributeDataDefinitionMap);
+            }
+        }
         return toscaNodeType;
     }
 
@@ -1172,6 +1187,24 @@ public class ToscaExportHandler {
         }
 
         return Either.left(nodeTypesMap);
+    }
+
+    private void createServiceSubstitutionNodeTypes(final Map<String, Component> componentCache,
+            final Component container, final ToscaTemplate toscaNode) {
+        final List<ComponentInstance> componentInstances = container.getComponentInstances();
+
+        if (CollectionUtils.isEmpty(componentInstances)) {
+            return;
+        }
+        final List<ComponentInstance> serviceSubstitutionInstanceList = componentInstances.stream()
+               .filter(p -> p.getOriginType().name().equals(OriginTypeEnum.ServiceSubstitution.name()))
+               .collect(Collectors.toList());
+        if (CollectionUtils.isNotEmpty(serviceSubstitutionInstanceList)) {
+            for (ComponentInstance inst : serviceSubstitutionInstanceList) {
+                final Map<String, ToscaNodeType> nodeTypes = toscaNode.getNode_types() == null ? new HashMap<>() : toscaNode.getNode_types();
+                convertInterfaceNodeType(new HashMap<>(), componentCache.get(inst.getSourceModelUid()), toscaNode, nodeTypes, true);
+            }
+        }
     }
 
     private ToscaNodeType createProxyNodeType(Map<String, Component> componentCache, Component origComponent,
@@ -1693,6 +1726,16 @@ public class ToscaExportHandler {
 
         return interfaceObject;
 
+    }
+
+    private Optional<Map<String, ToscaProperty>> getProxyNodeTypeInputProperties(final Component proxyComponent,
+                                                                                 final Map<String, DataTypeDefinition> dataTypes) {
+        if (Objects.isNull(proxyComponent)) {
+            return Optional.empty();
+        }
+        final Map<String, ToscaProperty> proxyInputProperties = new HashMap<>();
+        addInputsToProperties(dataTypes, proxyComponent.getInputs(), proxyInputProperties);
+        return MapUtils.isNotEmpty(proxyInputProperties) ? Optional.of(proxyInputProperties) : Optional.empty();
     }
 
     Optional<Map<String, ToscaProperty>> getProxyNodeTypeProperties(Component proxyComponent,

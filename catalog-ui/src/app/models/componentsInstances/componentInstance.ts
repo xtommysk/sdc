@@ -34,7 +34,6 @@ import {
 import {ResourceType, ComponentType} from "../../utils/constants";
 import {Capability} from "../capability";
 import {Requirement} from "../requirement";
-import {DirectivesEnum} from "../../ng2/components/logic/service-dependencies/directive-option";
 
 export interface IComponentInstance {
 
@@ -157,13 +156,17 @@ export class ComponentInstance implements IComponentInstance{
     public isServiceProxy = ():boolean => {
         return this.originType === ComponentType.SERVICE_PROXY;
     }
+    
+    public isServiceSubstitution = ():boolean => {
+        return this.originType === ComponentType.SERVICE_SUBSTITUTION;
+    }
 
     public isVFC = ():boolean => {
         return this.originType === ResourceType.VFC;
     }
 
     public getComponentUid = ():string => {
-        return this.isServiceProxy()? this.sourceModelUid : this.componentUid;
+        return this.isServiceProxy() || this.isServiceSubstitution() ? this.sourceModelUid : this.componentUid;
     }
 
     public setInstanceRC = ():void=> {
@@ -233,12 +236,8 @@ export class ComponentInstance implements IComponentInstance{
        return Array.isArray(this.directives) && this.directives.length > 0;
     }
 
-    public markAsSelect = () : void => {
-        this.directives.push(DirectivesEnum.SELECT);
-    }
-
-    public markAsSubstitute = () : void => {
-        this.directives.push(DirectivesEnum.SUBSTITUTE);
+    public setDirectiveValue = (selectedDirective: string) : void => {
+        this.directives.push(selectedDirective);
     }
 
     public unmarkAsDependent = (actualDirectiveValue: string) : void => {

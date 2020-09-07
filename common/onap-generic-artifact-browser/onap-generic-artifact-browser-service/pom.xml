@@ -9,7 +9,7 @@
     <parent>
         <groupId>org.onap.sdc.common</groupId>
         <artifactId>onap-generic-artifact-browser</artifactId>
-        <version>1.7.0-SNAPSHOT</version>
+        <version>1.7.1-SNAPSHOT</version>
     </parent>
 
     <properties>
@@ -58,15 +58,5 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven-surefire-plugin.version}</version>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

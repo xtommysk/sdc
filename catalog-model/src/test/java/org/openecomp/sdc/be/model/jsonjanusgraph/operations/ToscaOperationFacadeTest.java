@@ -37,6 +37,7 @@ import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.ArgumentMatchers;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -70,7 +71,7 @@ import org.openecomp.sdc.be.model.operations.api.StorageOperationStatus;
 import org.openecomp.sdc.be.model.DataTypeDefinition;
 import org.openecomp.sdc.be.model.PropertyDefinition;
 import org.openecomp.sdc.be.datatypes.elements.DataTypeDataDefinition;
-
+import org.openecomp.sdc.be.datatypes.elements.RequirementDataDefinition;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.HashMap;
@@ -106,6 +107,7 @@ public class ToscaOperationFacadeTest {
     private static final String ICON_NAME = "icon";
     private static final String SERVICE_MODEL_NAME = "Test_Service";
     private static final String SERVICE_PROXY_INSTANCE0_NAME = "testservice_proxy0";
+    private static final String SERVICE_SUBSTITUTION_INSTANCE0_NAME = "testservice0";
 
     @InjectMocks
     private ToscaOperationFacade testInstance;
@@ -637,7 +639,7 @@ public class ToscaOperationFacadeTest {
     }
 
     @Test
-    public void testAddComponentInstanceToTopologyTemplate() {
+    public void testAddComponentInstanceToTopologyTemplate_ServiceProxy() {
         Component containerComponent = new Service();
         Component originalComponent = new Service();
         ComponentInstance componentInstance = new ComponentInstance();
@@ -676,6 +678,58 @@ public class ToscaOperationFacadeTest {
         // the instance counter must be 1 because the service proxy instance with suffix 0 already exists.
         verify(nodeTemplateOperationMock, times(1))
             .addComponentInstanceToTopologyTemplate(any(), any(), eq("1"), eq(componentInstance), eq(false), eq(user));
+    }
+    @Test
+    public void testAddComponentInstanceToTopologyTemplate_ServiceSubstitution() {
+        Component containerComponent = new Service();
+        Component originalComponent = new Service();
+        ComponentInstance componentInstance = new ComponentInstance();
+        ComponentInstance existingComponentInstance = new ComponentInstance();
+        User user = new User();
+
+        containerComponent.setComponentType(ComponentTypeEnum.SERVICE);
+
+        originalComponent.setComponentType(ComponentTypeEnum.SERVICE);
+        originalComponent.setIcon(ICON_NAME);
+
+        componentInstance.setOriginType(OriginTypeEnum.ServiceSubstitution);
+        componentInstance.setSourceModelName(SERVICE_MODEL_NAME);
+
+        List<ComponentInstance> existingInstances = new ArrayList<>();
+        existingComponentInstance.setNormalizedName(SERVICE_SUBSTITUTION_INSTANCE0_NAME);
+        existingInstances.add(existingComponentInstance);
+        containerComponent.setComponentInstances(existingInstances);
+
+        when(nodeTemplateOperationMock
+            .addComponentInstanceToTopologyTemplate(any(), any(), eq("1"), eq(componentInstance), eq(false), eq(user)))
+            .thenReturn(Either.left(new ImmutablePair<>(new TopologyTemplate(), COMPONENT_ID)));
+        TopologyTemplate topologyTemplate = new TopologyTemplate();
+        topologyTemplate.setMetadataValue(JsonPresentationFields.COMPONENT_TYPE, ComponentTypeEnum.SERVICE.name());
+        when(topologyTemplateOperationMock.getToscaElement(containerComponent.getUniqueId()))
+            .thenReturn(Either.left(topologyTemplate));
+
+        Either<ImmutablePair<Component, String>, StorageOperationStatus> result =
+            testInstance.addComponentInstanceToTopologyTemplate(
+                containerComponent, originalComponent, componentInstance, false, user);
+
+        assertTrue(result.isLeft());
+        assertEquals(ICON_NAME, componentInstance.getIcon());
+        assertEquals(COMPONENT_ID, result.left().value().getRight());
+        verify(nodeTemplateOperationMock, times(1))
+            .addComponentInstanceToTopologyTemplate(any(), any(), eq("1"), eq(componentInstance), eq(false), eq(user));
+    }
+
+    @Test
+    public void testUpdateComponentInstanceRequirement() {
+        String containerComponentId = "containerComponentId";
+        String componentInstanceUniqueId= "componentInstanceUniqueId";
+        RequirementDataDefinition requirementDataDefinition= Mockito.mock(RequirementDataDefinition.class);
+
+        when(nodeTemplateOperationMock.updateComponentInstanceRequirement(containerComponentId, componentInstanceUniqueId, requirementDataDefinition)).thenReturn(StorageOperationStatus.OK);
+        StorageOperationStatus result = testInstance.updateComponentInstanceRequirement(containerComponentId, componentInstanceUniqueId, requirementDataDefinition);
+        assertEquals(StorageOperationStatus.OK, result);
+        verify(nodeTemplateOperationMock, times(1)).updateComponentInstanceRequirement(containerComponentId, componentInstanceUniqueId, requirementDataDefinition);
+
     }
 
     private Either<PolicyDefinition, StorageOperationStatus> associatePolicyToComponentWithStatus(StorageOperationStatus status) {

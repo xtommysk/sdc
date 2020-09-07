@@ -278,8 +278,10 @@ public class CsarUtils {
         }
 
         //UID <cassandraId,filename,component>
-        Either<ZipOutputStream, ResponseFormat> responseFormat = getZipOutputStreamResponseFormatEither(zip, dependencies);
-        if (responseFormat != null) return responseFormat;
+        Either<ZipOutputStream, ResponseFormat> zipOutputStreamOrResponseFormat = getZipOutputStreamResponseFormatEither(zip, dependencies);
+        if (zipOutputStreamOrResponseFormat != null && zipOutputStreamOrResponseFormat.isRight()) {
+                return zipOutputStreamOrResponseFormat;
+        }
 
         //retrieve SDC.zip from Cassandra
         Either<byte[], ResponseFormat> latestSchemaFilesFromCassandra = getLatestSchemaFilesFromCassandra();
@@ -1141,6 +1143,10 @@ public class CsarUtils {
                 }
                 if (ArtifactTypeEnum.WORKFLOW.getType().equals(artifactType)) {
                     artifactTypeFolder += OperationArtifactUtil.BPMN_ARTIFACT_PATH + File.separator;
+                } else if (ArtifactTypeEnum.ONBOARDED_PACKAGE.getType().equals(artifactType)) {
+                    // renaming legacy folder ONBOARDED_PACKAGE to the new folder ETSI_PACKAGE
+                    artifactTypeFolder = artifactTypeFolder
+                        .replace(ArtifactTypeEnum.ONBOARDED_PACKAGE.getType(), ArtifactTypeEnum.ETSI_PACKAGE.getType());
                 }
 
                 // TODO: We should not do this but in order to keep this refactoring small enough,

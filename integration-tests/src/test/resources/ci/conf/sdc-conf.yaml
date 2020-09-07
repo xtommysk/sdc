@@ -1,0 +1,110 @@
+####  Remote Front Testing with Docker container (COMMENT ALL FOR LOCAL)
+url: http://sdc-sim:8080/sdc1
+remoteTestingMachineIP: 127.0.0.1
+remoteTestingMachinePort: 4444
+remoteTesting: true
+useBrowserMobProxy: false
+captureTraffic: false
+downloadAutomationFolder: /tmp/sdc-integration-tests/downloadAutomation
+uiSimulator: true
+
+#### Local Front end testing
+#url: http://localhost:8285/sdc1
+#remoteTesting: false
+#useBrowserMobProxy: false
+#captureTraffic: false
+#downloadAutomationFolder: /home/seb/Downloads
+#uiSimulator: true
+
+#### Backend Testing
+outputFolder: target
+reportName: index.html
+catalogBeHost: 127.0.0.1
+catalogFeHost: 127.0.0.1
+onboardingBeHost: 127.0.0.1
+onboardingBePort: 8081
+esHost: eshost
+disributionClientHost: disClient
+catalogFePort: 8181
+catalogBePort: 8080
+disributionClientPort: 8181
+isDistributionClientRunning: true
+esPort: 9200
+neoHost: neoHost
+neoPort: 7474
+neoDBusername: neo4j	
+neoDBpassword: 123456
+systemUnderDebug: false
+resourceConfigDir: src/test/resources/ci/tests
+importResourceConfigDir: ../catalog-be/src/main/resources/import/tosca/capability-types
+importResourceTestsConfigDir: src/test/resources/ci/importResourceTests
+errorConfigurationFile: ../catalog-be/src/main/resources/config/error-configuration.yaml
+configurationFile: ../catalog-be/src/main/resources/config/configuration.yaml
+
+cassandraHost: 127.0.0.1
+cassandraAuthenticate: false
+cassandraUsername: koko
+cassandraPassword: bobo
+cassandraSsl: false
+cassandraTruststorePath : /path/path
+cassandraTruststorePassword : 123123
+cassandraAuditKeySpace: sdcaudit
+cassandraArtifactKeySpace: sdcartifact
+
+sdcHttpMethod: http
+localDataCenter: DC-Automate01
+
+stopOnClassFailure: false
+
+#List of non-abstract resources to keep during janus graph cleanup between tests
+#Only 1.0 version will be kept
+resourcesNotToDelete:
+     - Compute
+     - Database
+     - ObjectStorage
+     - BlockStorage
+     - LoadBalancer
+     - Port
+     - Network
+     - Root
+     - ContainerApplication
+     - ContainerRuntime
+     - DBMS
+     - SoftwareComponent
+     - WebApplication
+     - WebServer
+     - CinderVolume
+     - ContrailVirtualNetwork
+     - NeutronNet
+     - NeutronPort
+     - NovaServer
+     - AbstractSubstitute
+     - ContrailAbstractSubstitute
+     - ContrailCompute
+     - ContrailNetworkRules
+     - ContrailPort
+     - ContrailV2NetworkRules
+     - ContrailV2VirtualMachineInterface
+     - ContrailV2VirtualNetwork
+     - ContrailVirtualNetwork
+     - VL ELINE
+     - SecurityRules
+     - VL
+
+#Resource categories to keep (including all their subcategories)
+resourceCategoriesNotToDelete:
+     - Generic
+     - Network L2-3
+     - Network L4+
+     - Application L4+
+     - Network Connectivity
+     - DCAE Component
+     - Template
+     - Allotted Resource
+
+#Service categories to keep
+serviceCategoriesNotToDelete:
+     - Mobility
+     - Network L1-3
+     - Network L4+
+     - VoIP Call Control
