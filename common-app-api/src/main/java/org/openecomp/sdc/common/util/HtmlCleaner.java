@@ -20,7 +20,7 @@
 
 package org.openecomp.sdc.common.util;
 
-import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.text.StringEscapeUtils;
 
 import javax.swing.text.html.HTML;
 import javax.swing.text.html.HTML.Tag;
