@@ -683,63 +683,63 @@
     </dependencies>
 
     <build>
-          <finalName>${project.artifactId}-${project.version}</finalName>
-              <plugins>
-                  <plugin>
-                      <groupId>org.apache.maven.plugins</groupId>
-                      <artifactId>maven-surefire-plugin</artifactId>
-                      <configuration>
-                          <forkCount>1</forkCount>
-                      </configuration>
-                  </plugin>
-                  <plugin>
-                      <!-- Download Swagger UI webjar. -->
-                      <artifactId>maven-dependency-plugin</artifactId>
-                      <version>${maven-dependency-plugin.version}</version>
-                      <executions>
-                          <execution>
-                              <phase>prepare-package</phase>
-                              <goals>
-                                  <goal>unpack</goal>
-                              </goals>
-                              <configuration>
-                                  <artifactItems>
-                                      <artifactItem>
-                                          <groupId>org.webjars</groupId>
-                                          <artifactId>swagger-ui</artifactId>
-                                          <version>${swagger-ui.version}</version>
-                                      </artifactItem>
-                                  </artifactItems>
-                                  <outputDirectory>${project.build.directory}/swagger-ui</outputDirectory>
-                              </configuration>
-                          </execution>
-                      </executions>
-                  </plugin>
-                  <plugin>
-                      <!-- Replace the OpenAPI specification example URL with the local one. -->
-                      <groupId>com.google.code.maven-replacer-plugin</groupId>
-                      <artifactId>replacer</artifactId>
-                      <version>${replacer.plugin.version}</version>
-                      <executions>
-                          <execution>
-                              <phase>prepare-package</phase>
-                              <goals>
-                                  <goal>replace</goal>
-                              </goals>
-                          </execution>
-                      </executions>
-                      <configuration>
-                          <file>
-                              ${project.build.directory}/swagger-ui/META-INF/resources/webjars/swagger-ui/${swagger-ui.version}/index.html
-                          </file>
-                          <replacements>
-                              <replacement>
-                                  <token>https://petstore.swagger.io/v2/swagger.json</token>
-                                  <value>/sdc/openapi.json</value>
-                              </replacement>
-                          </replacements>
-                      </configuration>
-                  </plugin>
+        <finalName>${project.artifactId}-${project.version}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <forkCount>1</forkCount>
+                </configuration>
+            </plugin>
+            <plugin>
+                <!-- Download Swagger UI webjar. -->
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>${maven-dependency-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.webjars</groupId>
+                                    <artifactId>swagger-ui</artifactId>
+                                    <version>${swagger-ui.version}</version>
+                                </artifactItem>
+                            </artifactItems>
+                            <outputDirectory>${project.build.directory}/swagger-ui</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <!-- Replace the OpenAPI specification example URL with the local one. -->
+                <groupId>com.google.code.maven-replacer-plugin</groupId>
+                <artifactId>replacer</artifactId>
+                <version>${replacer.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>replace</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <file>
+                        ${project.build.directory}/swagger-ui/META-INF/resources/webjars/swagger-ui/${swagger-ui.version}/index.html
+                    </file>
+                    <replacements>
+                        <replacement>
+                            <token>https://petstore.swagger.io/v2/swagger.json</token>
+                            <value>/sdc/openapi.json</value>
+                        </replacement>
+                    </replacements>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
@@ -871,7 +871,8 @@
                                     </includes>
                                 </fileset>
                                 <fileset>
-                                    <directory>sdc-backend-init/chef-repo/cookbooks/sdc-catalog-be-setup/files/default</directory>
+                                    <directory>sdc-backend-init/chef-repo/cookbooks/sdc-catalog-be-setup/files/default
+                                    </directory>
                                     <followSymlinks>false</followSymlinks>
                                     <includes>
                                         <include>normatives.tar.gz</include>
@@ -1097,7 +1098,8 @@
                                     </outputDirectory>
                                     <resources>
                                         <resource>
-                                            <directory>${project.parent.basedir}/catalog-be/src/main/resources/</directory>
+                                            <directory>${project.parent.basedir}/catalog-be/src/main/resources/
+                                            </directory>
                                             <includes>
                                                 <include>scripts/sdcBePy/**</include>
                                                 <inculde>scripts/setup.py</inculde>

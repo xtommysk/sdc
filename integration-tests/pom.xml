@@ -51,7 +51,7 @@ limitations under the License.
         <it.ui.firefox.version>2.53.1</it.ui.firefox.version>
 
         <aventstack.extentreports.version>3.0.6</aventstack.extentreports.version>
-        <jackson.mapper.asl.version>1.9.2</jackson.mapper.asl.version>
+        <!--jackson.mapper.asl.version>1.9.2</jackson.mapper.asl.version-->
         <commons.net.version>3.3</commons.net.version>
         <xml.apis.version>1.4.01</xml.apis.version>
         <lightbody.bmp-core.version>2.1.4</lightbody.bmp-core.version>

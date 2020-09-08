@@ -23,13 +23,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <artifactId>etsi-nfv-nsd-csar-plugin</artifactId>
+
     <parent>
         <groupId>org.openecomp.sdc</groupId>
         <artifactId>catalog-be-plugins</artifactId>
         <version>1.7.1-SNAPSHOT</version>
     </parent>
-
-    <artifactId>etsi-nfv-nsd-csar-plugin</artifactId>
 
     <properties>
         <hamcrest.version>2.2</hamcrest.version>
@@ -98,7 +98,9 @@
                                             <targetDir>/plugins</targetDir>
                                         </assembly>
                                         <tags>
-                                            <tag>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}-STAGING-latest</tag>
+                                            <tag>
+                                                ${parsedVersion.majorVersion}.${parsedVersion.minorVersion}-STAGING-latest
+                                            </tag>
                                             <tag>${project.version}-${maven.build.timestamp}</tag>
                                         </tags>
                                     </build>

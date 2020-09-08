@@ -16,15 +16,13 @@
 
 package org.onap.sdc.tosca.services;
 
+import java.beans.IntrospectionException;
 import org.onap.sdc.tosca.error.ToscaRuntimeException;
 import org.yaml.snakeyaml.constructor.Constructor;
 import org.yaml.snakeyaml.introspector.Property;
 import org.yaml.snakeyaml.introspector.PropertyUtils;
 import org.yaml.snakeyaml.nodes.MappingNode;
 import org.yaml.snakeyaml.nodes.NodeId;
-
-import java.beans.IntrospectionException;
-
 
 public class ToscaExtensionYamlUtil extends YamlUtil {
 
