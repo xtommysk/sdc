@@ -93,6 +93,7 @@ Modifications copyright (c) 2018-2019 Nokia
 
         <clearspring.version>2.1.1</clearspring.version>
         <skipYamlJsonValidator>false</skipYamlJsonValidator>
+        <json.version>20131018</json.version>
 
         <!-- Yaml for properties -->
         <snakeyaml.version>1.17</snakeyaml.version>
