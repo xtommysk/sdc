@@ -21,7 +21,7 @@ package org.openecomp.sdc.be.components.impl.utils;
 
 import java.util.List;
 import java.util.Optional;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.openecomp.sdc.be.config.ConfigurationManager;
 
 public class DirectivesUtil {
